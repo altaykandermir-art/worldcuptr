@@ -1,0 +1,1647 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <meta name="theme-color" content="#0B0E1A">
+  <title>BahisNow | LaLiga Resmi Sponsoru — Türkiye'nin #1 Spor Bahis Platformu</title>
+  <meta name="description" content="BahisNow ile Dünya Kupası 2026 ve LaLiga maç oranları, Türkiye Milli Takım bahisleri, %200 hoş geldin bonusu. 8.000+ canlı maç, anında çekim, 7/24 destek.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bahisnow.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BahisNow — LaLiga Resmi Sponsoru">
+  <meta property="og:description" content="Dünya Kupası 2026 ve LaLiga bahisleri. %200 hoş geldin bonusu, 5.000₺ freebet.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Russo+One&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --pink:#FF1744;
+      --pink-bright:#FF4081;
+      --pink-deep:#C2185B;
+      --pink-dark:#880E4F;
+      --gold:#F59E0B;
+      --gold-light:#FBBF24;
+      --emerald:#10B981;
+      --navy:#0B0E1A;
+      --navy-2:#11152A;
+      --navy-3:#1A1F36;
+      --surface:#181B2C;
+      --surface-2:#1F2238;
+      --line:rgba(255,255,255,.06);
+      --line-2:rgba(255,255,255,.1);
+      --line-pink:rgba(255,23,68,.3);
+      --text:#E8EBF5;
+      --text-2:#B8BDD0;
+      --muted:#7A8199;
+      --white:#FFFFFF;
+    }
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--text);min-height:100vh;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+    .container{max-width:1680px;margin:0 auto;padding:0 28px}
+
+    /* ===== TICKER (Upcoming matches) ===== */
+    .ticker{display:none;position:relative;background:linear-gradient(90deg,#0B0E1A,#1A0211 50%,#0B0E1A);border-bottom:1px solid var(--line);height:40px;overflow:hidden}
+    .ticker-label{position:absolute;left:0;top:0;bottom:0;z-index:2;padding:0 24px 0 16px;background:linear-gradient(90deg,var(--pink),var(--pink-deep));display:flex;align-items:center;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fff;clip-path:polygon(0 0,100% 0,calc(100% - 14px) 100%,0 100%);box-shadow:0 0 24px rgba(255,23,68,.4)}
+    .ticker-label .dot{width:7px;height:7px;border-radius:50%;background:#fff;margin-right:8px;animation:pulse 1.4s infinite}
+    .ticker-mask{position:absolute;inset:0;padding-left:130px;overflow:hidden;display:flex;align-items:center}
+    .ticker-track{display:flex;gap:36px;white-space:nowrap;animation:tickerScroll 60s linear infinite;align-items:center;padding-left:24px}
+    .ticker-item{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--text-2);letter-spacing:.02em;font-weight:500}
+    .ticker-item strong{color:#fff;font-weight:700}
+    .ticker-item .date{color:var(--gold);font-weight:800;font-variant-numeric:tabular-nums;font-size:11px;letter-spacing:.06em}
+    .ticker-item .league{color:var(--pink-bright);font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+    .ticker-item .sep{color:rgba(255,255,255,.2);font-size:10px}
+    @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+    /* ===== NAV ===== */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(11,14,26,.94);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);height:66px}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:100%;max-width:none;margin:0 auto;padding:0 36px}
+    .brand{display:flex;align-items:center;gap:2px;font-family:'Russo One',sans-serif;font-size:24px;letter-spacing:.01em}
+    .brand-img{height:44px;width:auto;display:block;filter:drop-shadow(0 4px 12px rgba(255,23,68,.3))}
+    @media(max-width:640px){.brand-img{height:26px}}
+    .brand-bahis{background:linear-gradient(135deg,var(--pink-bright),var(--pink-deep));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic;font-weight:700}
+    .brand-now{color:#fff;font-weight:900}
+    .brand-dot{color:var(--pink);font-size:30px;line-height:0}
+    .nav-links{display:none;align-items:center;gap:34px}
+    .nav-link{font-size:15px;font-weight:600;color:var(--text-2);transition:color .2s;position:relative;padding:6px 0}
+    .nav-link::after{content:"";position:absolute;left:0;right:0;bottom:-22px;height:2px;background:var(--pink);border-radius:2px;transform:scaleX(0);transition:transform .2s;transform-origin:center}
+    .nav-link:hover{color:#fff}
+    .nav-link:hover::after{transform:scaleX(1)}
+    .nav-tv{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:99px;background:linear-gradient(135deg,rgba(255,23,68,.18),rgba(255,23,68,.06));border:1px solid rgba(255,23,68,.4);color:#fff;font-size:13px;font-weight:700;letter-spacing:.02em;transition:all .2s;position:relative}
+    .nav-tv::before{content:"";width:6px;height:6px;border-radius:50%;background:#FF1744;box-shadow:0 0 8px rgba(255,23,68,.8);animation:tvpulse 1.5s ease-in-out infinite}
+    @keyframes tvpulse{0%,100%{opacity:1}50%{opacity:.4}}
+    .nav-tv:hover{background:linear-gradient(135deg,rgba(255,23,68,.3),rgba(255,23,68,.12));border-color:var(--pink);transform:translateY(-1px)}
+    .nav-tv img{height:16px;width:auto;display:block;filter:brightness(1.1)}
+    .nav-cta-group{display:flex;gap:8px;align-items:center}
+    .nav-login{padding:9px 18px;border-radius:8px;color:#fff;font-weight:600;font-size:13px;border:1px solid var(--line-2);transition:all .2s;white-space:nowrap}
+    .nav-login:hover{background:rgba(255,255,255,.05)}
+    .nav-cta{padding:9px 20px;border-radius:8px;background:linear-gradient(135deg,var(--pink),var(--pink-deep));color:#fff;font-weight:700;font-size:13px;box-shadow:0 4px 14px rgba(255,23,68,.35);transition:transform .15s;white-space:nowrap}
+    .nav-cta:hover{transform:translateY(-1px)}
+    /* small header countdown */
+    .nav-countdown{display:none;align-items:center;gap:8px;padding:6px 13px;border-radius:99px;background:rgba(255,23,68,.1);border:1px solid var(--line-pink);margin-right:4px}
+    .navcd-ico{font-size:13px;line-height:1}
+    .navcd-seg{display:inline-flex;align-items:baseline;gap:2px;font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+    .navcd-seg b{font-family:'Bebas Neue',sans-serif;font-size:16px;color:#fff;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+    @media(min-width:960px){.nav-links{display:flex;flex:1;justify-content:center}.nav-countdown{display:inline-flex}}
+
+    /* ===== HERO ===== */
+    .hero{position:relative;padding:0;overflow:hidden;background:#0B0E1A}
+    .hero-bg{position:absolute;inset:0;z-index:0;background:
+      linear-gradient(180deg,rgba(11,14,26,.3) 0%,rgba(11,14,26,.7) 50%,#0B0E1A 100%),
+      radial-gradient(ellipse 80% 60% at 50% 0%,rgba(255,23,68,.25) 0%,transparent 55%),
+      url('https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1920&q=80');
+      background-size:cover;background-position:center;background-blend-mode:normal,multiply,overlay}
+    .hero-bg::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,23,68,.08) 1px,transparent 1px);background-size:32px 32px;opacity:.5}
+    .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,14,26,.4) 0%,rgba(11,14,26,.8) 60%,#0B0E1A 100%)}
+    .hero-spotlight{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(245,158,11,.15) 0%,transparent 60%);pointer-events:none;z-index:0}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:48px;max-width:1280px;margin:0 auto;align-items:center}
+    .hero-left{text-align:center}
+    .hero-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.35);color:var(--gold-light);font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:20px}
+    .hero-pill::before{content:"✦"}
+    .hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(46px,8vw,86px);line-height:.95;color:#fff;letter-spacing:-.005em;margin-bottom:20px}
+    .hero h1 .accent{background:linear-gradient(135deg,var(--gold),var(--gold-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+    .hero h1 .pink-accent{background:linear-gradient(135deg,var(--pink),var(--pink-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block}
+    .hero-tagline{font-size:17px;color:var(--text-2);max-width:560px;margin:0 auto 28px;line-height:1.55}
+    .hero-tagline strong{color:#fff}
+    .hero-ctas{display:flex;flex-direction:column;gap:10px;max-width:440px;margin:0 auto 36px}
+    @media(min-width:540px){.hero-ctas{flex-direction:row}}
+    .cta-pri{flex:1;display:block;padding:17px 24px;border-radius:10px;background:linear-gradient(135deg,var(--pink),var(--pink-deep));color:#fff;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;text-align:center;box-shadow:0 10px 28px rgba(255,23,68,.4);transition:transform .15s}
+    .cta-pri:hover{transform:translateY(-2px)}
+    .cta-sec{flex:1;display:block;padding:17px 24px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--line-2);color:#fff;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;text-align:center;backdrop-filter:blur(8px)}
+
+    /* Trust strip */
+    .trust-strip{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;padding-top:8px}
+    .trust-chip{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);font-weight:600}
+    .trust-chip::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--emerald);box-shadow:0 0 8px var(--emerald)}
+
+    /* Hero right — featured Turkey match */
+    .hero-feature{position:relative}
+    .feature-card{background:linear-gradient(145deg,rgba(255,23,68,.18),rgba(11,14,26,.4));backdrop-filter:blur(20px);border:1px solid var(--line-pink);border-radius:24px;padding:28px;box-shadow:0 24px 64px rgba(255,23,68,.18);position:relative;overflow:hidden}
+    .feature-card::before{content:"";position:absolute;top:-50%;right:-30%;width:80%;height:200%;background:radial-gradient(ellipse,rgba(255,255,255,.06) 0%,transparent 60%);transform:rotate(35deg)}
+    .feature-label{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-bright);margin-bottom:6px;position:relative}
+    .feature-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--pink);animation:pulse 1.4s infinite;box-shadow:0 0 12px var(--pink)}
+    .feature-meta{font-size:12px;color:var(--text-2);margin-bottom:20px;position:relative}
+    .feature-teams{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:20px;position:relative}
+    .feature-team{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px}
+    .feature-flag{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Russo One',sans-serif;font-size:22px;color:#fff;border:3px solid rgba(255,255,255,.12);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+    .feature-team-name{font-size:15px;font-weight:800;color:#fff;letter-spacing:.02em}
+    .feature-team-form{display:flex;gap:3px;justify-content:center}
+    .form-dot{width:7px;height:7px;border-radius:50%}
+    .form-dot.w{background:var(--emerald)}
+    .form-dot.d{background:#94a3b8}
+    .form-dot.l{background:#ef4444}
+    .feature-vs{font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--text-2);padding:0 8px}
+    .feature-info{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:rgba(0,0,0,.3);border-radius:10px;margin-bottom:18px;position:relative}
+    .feature-info-block{display:flex;flex-direction:column;text-align:center;flex:1}
+    .feature-info-block:not(:last-child){border-right:1px solid var(--line)}
+    .feature-info-label{font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+    .feature-info-val{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;margin-top:2px}
+    .feature-odds{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;position:relative}
+    .feature-odd{padding:12px 6px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid var(--line-2);text-align:center;transition:all .2s;cursor:pointer}
+    .feature-odd:hover{background:rgba(255,23,68,.12);border-color:var(--line-pink)}
+    .feature-odd.featured{background:linear-gradient(135deg,rgba(245,158,11,.2),rgba(245,158,11,.05));border-color:rgba(245,158,11,.4)}
+    .feature-odd-label{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    .feature-odd-val{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;margin-top:3px}
+    .feature-odd.featured .feature-odd-val{color:var(--gold)}
+
+    @media(min-width:1000px){
+      .hero-grid{grid-template-columns:1.1fr .9fr;gap:60px}
+      .hero-left{text-align:left}
+      .hero-tagline{margin:0 0 28px}
+      .hero-ctas{margin:0 0 36px;max-width:none}
+      .trust-strip{justify-content:flex-start}
+    }
+
+    /* ===== HERO SLIDER ===== */
+    .hero-slider{position:relative;z-index:1;width:100%;margin:0;overflow:hidden;cursor:grab}
+    .hero-slider:active{cursor:grabbing}
+    .hs-img,.hs-bg{user-select:none;-webkit-user-drag:none}
+    .hs-viewport{overflow:hidden;transition:height .4s ease}
+    .hs-track{display:flex;align-items:flex-start;will-change:transform;transition:transform .6s cubic-bezier(.65,.05,.36,1)}
+    .hs-slide{position:relative;min-width:100%;display:block;line-height:0;background:#0B0E1A}
+    .hs-img{width:100%;height:auto;display:block;aspect-ratio:1899/470;object-fit:cover;position:relative;z-index:1}
+    .hs-bg{display:none}
+    .hs-pic{display:contents}
+    /* arrows */
+    .hs-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(11,14,26,.55);backdrop-filter:blur(6px);color:#fff;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;padding:0}
+    .hs-arrow:hover{background:var(--pink);border-color:var(--pink);transform:translateY(-50%) scale(1.08)}
+    .hs-prev{left:14px}
+    .hs-next{right:14px}
+    /* dots */
+    .hs-dots{position:absolute;left:0;right:0;bottom:14px;z-index:3;display:flex;justify-content:center;gap:9px}
+    .hs-dot{width:9px;height:9px;border-radius:50%;border:none;padding:0;background:rgba(255,255,255,.45);cursor:pointer;transition:all .25s}
+    .hs-dot:hover{background:rgba(255,255,255,.8)}
+    .hs-dot.active{width:26px;border-radius:5px;background:var(--pink);box-shadow:0 0 12px rgba(255,23,68,.7)}
+    .hero-trust{justify-content:center;margin:0;padding:18px 20px;flex-wrap:wrap}
+    @media(max-width:640px){
+      .hs-arrow{width:36px;height:36px;font-size:21px}
+      .hs-prev{left:8px}.hs-next{right:8px}
+      .hs-dots{bottom:9px}
+      .hs-dot.active{width:20px}
+      /* show the FULL image at 100% width — no crop, no empty space (height hugs the image) */
+      .hs-slide{aspect-ratio:auto}
+      .hs-img{position:static;inset:auto;width:100%;height:auto;aspect-ratio:auto;object-fit:fill}
+      .hs-bg{display:none}
+      /* tighter nav + single-row, transparent "Üye Ol" button on mobile */
+      .nav-inner{padding:0 14px}
+      .nav-cta-group{gap:6px}
+      .nav-login,.nav-cta{padding:8px 13px;font-size:12px}
+      .nav-cta{background:transparent;border:1.5px solid var(--pink-bright);color:#fff;box-shadow:none}
+    }
+
+    /* ===== COUNTDOWN ===== */
+    .countdown-sec{padding:60px 20px;background:linear-gradient(180deg,#0B0E1A 0%,#1A0211 50%,#0B0E1A 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center;position:relative;overflow:hidden}
+    .countdown-sec::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(255,23,68,.15) 0%,transparent 60%);pointer-events:none}
+    .countdown-inner{position:relative;max-width:900px;margin:0 auto}
+    .countdown-label{display:inline-block;padding:5px 16px;border-radius:100px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.35);color:var(--gold-light);font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px}
+    .countdown-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,5vw,44px);color:#fff;letter-spacing:.01em;margin-bottom:8px;line-height:1.05}
+    .countdown-title .accent{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .countdown-sub{font-size:14px;color:var(--text-2);margin-bottom:32px}
+    .countdown-clock{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+    @media(min-width:600px){.countdown-clock{gap:16px}}
+    .countdown-cell{flex:1;min-width:72px;max-width:130px;padding:18px 8px;border-radius:14px;background:linear-gradient(180deg,rgba(255,23,68,.18),rgba(11,14,26,.5));border:1px solid var(--line-pink);box-shadow:0 12px 32px rgba(255,23,68,.15);position:relative;overflow:hidden;backdrop-filter:blur(8px)}
+    .countdown-cell::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent)}
+    .countdown-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,6vw,56px);color:#fff;line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums;background:linear-gradient(135deg,#fff,#FFB3C7);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .countdown-unit{font-size:10px;color:var(--text-2);letter-spacing:.16em;text-transform:uppercase;margin-top:6px;font-weight:700}
+
+    /* ===== STATS BAND (full-width) ===== */
+    .stats-band{background:linear-gradient(180deg,#0F1224 0%,#11152A 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);width:100%}
+    .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.05);width:100%}
+    @media(min-width:768px){.stats-grid{grid-template-columns:repeat(4,1fr)}}
+    .stat-cell{background:linear-gradient(180deg,#0F1224,#11152A);padding:36px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:140px;transition:background .2s}
+    .stat-cell:hover{background:linear-gradient(180deg,#181B2C,#1A1F36)}
+    .stat-cell-num{font-family:'Bebas Neue',sans-serif;font-size:42px;line-height:1;background:linear-gradient(135deg,#fff,var(--text-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stat-cell-num.gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stat-cell-num.pink{background:linear-gradient(135deg,var(--pink-bright),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .stat-cell-label{font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:8px}
+
+    /* ===== SECTION SHARED ===== */
+    section.sec{padding:80px 20px;position:relative}
+    .sec-head{margin-bottom:48px;text-align:center}
+    .sec-tag{display:inline-block;padding:4px 14px;border-radius:100px;background:rgba(255,23,68,.08);border:1px solid var(--line-pink);color:#FF7099;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
+    .sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,5.5vw,56px);line-height:1.02;color:#fff;letter-spacing:.005em;margin-bottom:12px}
+    .sec-title .gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .sec-title .pink{background:linear-gradient(135deg,var(--pink-bright),var(--pink-deep));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .sec-sub{font-size:15px;color:var(--text-2);max-width:560px;margin:0 auto;line-height:1.55}
+
+    /* ===== TURKEY SECTION ===== */
+    .turkey-sec{background:linear-gradient(180deg,#11152A 0%,#0B0E1A 100%);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+    .turkey-bg{position:absolute;inset:0;background:
+      radial-gradient(circle at 75% 50%,rgba(227,10,23,.18) 0%,rgba(227,10,23,.04) 35%,transparent 60%),
+      radial-gradient(circle at 25% 50%,rgba(227,10,23,.08) 0%,transparent 50%);
+      pointer-events:none}
+    .turkey-flag-blur{position:absolute;top:50%;right:-100px;transform:translateY(-50%);width:560px;height:560px;border-radius:50%;background:
+      radial-gradient(circle at 38% 50%,#E30A17 0%,#E30A17 22%,rgba(227,10,23,.6) 35%,transparent 60%),
+      radial-gradient(circle at 48% 50%,#0B0E1A 0%,#0B0E1A 20%,transparent 22%);
+      filter:blur(60px);opacity:.4;pointer-events:none;z-index:0}
+    .turkey-star{position:absolute;top:50%;right:80px;transform:translateY(-50%);width:120px;height:120px;background:radial-gradient(circle,rgba(255,255,255,.12) 0%,transparent 60%);filter:blur(30px);pointer-events:none;z-index:0}
+    @media(max-width:760px){.turkey-flag-blur{width:380px;height:380px;right:-150px;opacity:.3}}
+    .turkey-grid{display:grid;grid-template-columns:1fr;gap:24px;position:relative}
+    @media(min-width:1000px){.turkey-grid{grid-template-columns:1fr 1fr;align-items:center}}
+    .turkey-content{position:relative}
+    .turkey-flag-big{display:inline-flex;align-items:center;gap:14px;margin-bottom:24px}
+    .turkey-flag{width:64px;height:64px;border-radius:50%;background:url('icons/turkey.png') center/cover no-repeat,#E30A17;position:relative;box-shadow:0 8px 24px rgba(227,10,23,.4);border:3px solid rgba(255,255,255,.12)}
+    .tm-flags{flex-shrink:0;display:flex;align-items:center}
+    .tm-flags img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,.18);background:#0e1120}
+    .tm-flags img:last-child{margin-left:-11px}
+    @media(max-width:600px){
+      .turkey-matches{gap:10px}
+      .turkey-match{flex-wrap:wrap;gap:10px 12px;padding:12px}
+      .turkey-match-date{width:46px;padding:5px}
+      .turkey-match-day{font-size:18px}
+      .tm-flags img{width:28px;height:28px}
+      .turkey-match-info{flex:1 1 0;min-width:0}
+      .turkey-match-teams{font-size:13px}
+      .turkey-match .watch-live-mini{order:3;width:100%;justify-content:center;padding:11px}
+    }
+    .turkey-team-label{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#fff;letter-spacing:.04em}
+    .turkey-team-sub{font-size:12px;color:var(--gold);font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+    .turkey-h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,56px);color:#fff;line-height:1.05;margin-bottom:16px}
+    .turkey-desc{font-size:15px;color:var(--text-2);margin-bottom:28px;line-height:1.65}
+    .turkey-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px}
+    .turkey-stat{padding:16px 12px;border-radius:12px;background:rgba(227,10,23,.08);border:1px solid rgba(227,10,23,.25);text-align:center}
+    .turkey-stat-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#fff;line-height:1}
+    .turkey-stat-label{font-size:10px;color:var(--text-2);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-top:4px}
+    .turkey-matches{display:flex;flex-direction:column;gap:10px}
+    .turkey-match{display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);transition:all .2s}
+    .turkey-match:hover{background:rgba(227,10,23,.08);border-color:rgba(227,10,23,.3);transform:translateX(4px)}
+    .turkey-match-date{flex-shrink:0;width:60px;text-align:center;padding:6px;background:linear-gradient(135deg,#E30A17,#A60714);border-radius:8px}
+    .turkey-match-day{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;line-height:1}
+    .turkey-match-month{font-size:9px;color:rgba(255,255,255,.85);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-top:2px}
+    .turkey-match-info{flex:1;min-width:0}
+    .turkey-match-teams{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px}
+    .turkey-match-comp{font-size:11px;color:var(--muted);letter-spacing:.04em}
+    .turkey-match-odds{flex-shrink:0;display:flex;gap:6px}
+    .turkey-mini-odd{padding:6px 10px;border-radius:6px;background:rgba(0,0,0,.3);text-align:center;min-width:38px}
+    .turkey-mini-odd-label{font-size:9px;color:var(--muted);font-weight:700}
+    .turkey-mini-odd-val{font-family:'Bebas Neue',sans-serif;font-size:14px;color:#fff;line-height:1;margin-top:2px}
+    .turkey-mini-odd.best .turkey-mini-odd-val{color:var(--gold)}
+
+    /* ===== MATCHES SECTION ===== */
+    .matches-sec{background:#0B0E1A}
+    .match-tabs{display:inline-flex;gap:6px;margin:0 auto 36px;padding:6px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px}
+    .match-tabs-wrap{display:flex;justify-content:center;margin-bottom:0}
+    .match-tab{display:inline-flex;align-items:center;gap:7px;padding:11px 22px;border-radius:8px;color:var(--text-2);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;white-space:nowrap}
+    .tab-flag{width:18px;height:18px;border-radius:50%;object-fit:cover;display:inline-block}
+    .match-tab:hover:not(.active){color:#fff;background:rgba(255,255,255,.04)}
+    .match-tab.active{background:linear-gradient(135deg,var(--pink),var(--pink-deep));color:#fff;box-shadow:0 4px 14px rgba(255,23,68,.3)}
+    /* ===== MATCH FILTERS (search + date chips) ===== */
+    .match-filters{display:flex;flex-direction:column;gap:16px;margin-bottom:26px}
+    .match-search{position:relative;max-width:440px;width:100%;margin:0 auto}
+    .match-search .ms-ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:14px;opacity:.55}
+    .match-search input{width:100%;padding:12px 16px 12px 40px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--line-2);color:#fff;font-size:14px;font-family:inherit;transition:border-color .2s,background .2s}
+    .match-search input::placeholder{color:var(--muted)}
+    .match-search input:focus{outline:none;border-color:var(--line-pink);background:rgba(255,255,255,.06)}
+    .date-chips{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 8px;scrollbar-width:thin}
+    .date-chips::-webkit-scrollbar{height:6px}
+    .date-chips::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:3px}
+    .date-chip{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:56px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--line-2);color:var(--text-2);cursor:pointer;transition:all .18s;font-family:inherit;line-height:1.1}
+    .date-chip b{font-size:13px;font-weight:800;color:#fff}
+    .date-chip span{font-size:9px;letter-spacing:.06em;text-transform:uppercase}
+    .date-chip:hover{border-color:var(--line-pink)}
+    .date-chip.active{background:linear-gradient(135deg,var(--pink),var(--pink-deep));border-color:transparent;box-shadow:0 4px 14px rgba(255,23,68,.3)}
+    .date-chip.active b,.date-chip.active span{color:#fff}
+    .date-chip-all{justify-content:center;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.3)}
+    .matches-empty{text-align:center;color:var(--muted);padding:40px 0;font-size:14px}
+    .match-pager{display:flex;justify-content:center;align-items:center;gap:6px;margin-top:28px;flex-wrap:wrap}
+    .pg-btn{min-width:38px;height:38px;padding:0 10px;border-radius:9px;background:rgba(255,255,255,.04);border:1px solid var(--line-2);color:var(--text-2);font-weight:700;font-size:14px;cursor:pointer;transition:all .18s;font-family:inherit}
+    .pg-btn:hover:not(:disabled){border-color:var(--line-pink);color:#fff}
+    .pg-btn.active{background:linear-gradient(135deg,var(--pink),var(--pink-deep));border-color:transparent;color:#fff;box-shadow:0 4px 14px rgba(255,23,68,.3)}
+    .pg-btn:disabled{opacity:.35;cursor:default}
+    .pg-dots{color:var(--muted);padding:0 2px}
+    #matchesGrid .crest{background:linear-gradient(135deg,#2b3252,#15192a);font-size:13px;font-weight:800;letter-spacing:.02em}
+    #matchesGrid .crest.tr{background:radial-gradient(circle at 40% 50%,#E30A17 70%,#FFFFFF 71%);color:#fff}
+    #matchesGrid .crest .qq{opacity:.5}
+    #matchesGrid .crest.flag{padding:0;overflow:hidden;background:#0e1120}
+    #matchesGrid .crest.flag img{width:100%;height:100%;object-fit:cover;display:block}
+    .match.is-tr{border-color:rgba(227,10,23,.3)}
+    .matches-grid{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:760px){.matches-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1100px){.matches-grid{grid-template-columns:repeat(3,1fr)}}
+    .match{background:linear-gradient(160deg,#1C2034 0%,#141831 55%,#0E1120 100%);border:1px solid var(--line);border-radius:18px;padding:22px 20px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .3s}
+    .match::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pink),var(--gold));opacity:.85;transform:scaleX(1);transform-origin:left;transition:opacity .35s ease}
+    .match::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 50% -10%,rgba(255,23,68,.10),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none}
+    .match:hover{transform:translateY(-6px);border-color:var(--line-pink);box-shadow:0 22px 52px rgba(255,23,68,.18)}
+    .match:hover::before{transform:scaleX(1);opacity:1}
+    .match:hover::after{opacity:1}
+    .match[data-filter="turkey"]{border-color:rgba(227,10,23,.28)}
+    .match[data-filter="turkey"]::before,.match.is-tr::before{background:linear-gradient(90deg,#E30A17,#ff6b73);opacity:1;transform:scaleX(1)}
+    .match-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-size:11px;letter-spacing:.04em;font-weight:600}
+    .match-league{display:inline-flex;align-items:center;gap:5px;color:var(--gold-light);font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:10px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);padding:4px 9px;border-radius:7px}
+    .match-status{color:var(--text-2);font-size:10px;letter-spacing:.05em;text-transform:uppercase;font-weight:700;background:rgba(255,255,255,.05);border:1px solid var(--line-2);padding:4px 9px;border-radius:7px}
+    .match-status.live{color:var(--pink);display:flex;align-items:center;gap:6px}
+    .match-status.live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--pink);animation:pulse 1.4s infinite}
+    .match-teams{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px}
+    .team{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px}
+    .crest{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Russo One',sans-serif;font-size:17px;color:#fff;border:2px solid rgba(255,255,255,.18);box-shadow:0 8px 22px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.06);transition:transform .25s,box-shadow .25s}
+    .match:hover .crest{transform:scale(1.06);box-shadow:0 10px 26px rgba(0,0,0,.55),0 0 0 4px rgba(255,23,68,.12)}
+    .crest.tr{background:radial-gradient(circle at 40% 50%,#E30A17 70%,#FFFFFF 71%)}
+    .crest.es{background:linear-gradient(180deg,#AA151B 50%,#F1BF00 50%);color:#AA151B}
+    .crest.pt{background:linear-gradient(90deg,#006600 33%,#FF0000 33%)}
+    .crest.de{background:linear-gradient(180deg,#000 33%,#DD0000 33%,#FFCE00 66%)}
+    .crest.fr{background:linear-gradient(90deg,#002654 33%,#FFFFFF 33%,#FFFFFF 66%,#ED2939 66%);color:#002654}
+    .crest.it{background:linear-gradient(90deg,#009246 33%,#FFFFFF 33%,#FFFFFF 66%,#CE2B37 66%);color:#009246}
+    .crest.br{background:radial-gradient(circle,#FFDF00 60%,#009C3B 60%);color:#002776}
+    .crest.ar{background:linear-gradient(180deg,#75AADB 33%,#FFFFFF 33%,#FFFFFF 66%,#75AADB 66%);color:#F6B40E}
+    .crest.eng{background:radial-gradient(circle,#FFFFFF 60%,#C8102E 60%);color:#001E5C}
+    .crest.real{background:radial-gradient(circle,#FEBE10 70%,#FFFFFF 70%);color:#FEBE10}
+    .crest.barca{background:linear-gradient(180deg,#A50044 50%,#004D98 50%);color:#FFED02}
+    .crest.atletico{background:linear-gradient(135deg,#CB3524,#FFFFFF);color:#272E61}
+    .crest.sevilla{background:radial-gradient(circle,#FFFFFF 65%,#D31E26 65%);color:#D31E26}
+    .crest.valencia{background:#FFFFFF;color:#FF7F00}
+    .crest.bilbao{background:linear-gradient(180deg,#EE2523 50%,#FFFFFF 50%);color:#EE2523}
+    .crest.ars{background:linear-gradient(135deg,#EF0107,#FFFFFF);color:#023474}
+    .crest.lpl{background:#C8102E;color:#FFFFFF}
+    .team-name{font-size:13px;font-weight:700;color:#fff;text-align:center;line-height:1.2}
+    .team-form{display:flex;gap:3px}
+    .form-dot{width:6px;height:6px;border-radius:50%}
+    .form-dot.w{background:var(--emerald)}
+    .form-dot.d{background:#94a3b8}
+    .form-dot.l{background:#ef4444}
+    .match-vs{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--text-2);flex-shrink:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(0,0,0,.35);border:1px solid var(--line-2);letter-spacing:.02em}
+    .match-kickoff{display:block;width:fit-content;margin:0 auto 16px;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--gold-light);letter-spacing:.08em;padding:6px 16px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.22);border-radius:8px}
+    .match-kickoff.live-score{color:var(--pink);font-size:30px;display:flex;align-items:center;justify-content:center;gap:6px}
+    .match-kickoff.live-score .minute{font-size:11px;color:var(--text-2);background:rgba(0,0,0,.4);padding:3px 8px;border-radius:6px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.04em}
+    .match-odds{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .odd{padding:11px 6px;border-radius:10px;background:rgba(0,0,0,.3);border:1px solid var(--line);text-align:center;transition:all .2s;cursor:pointer}
+    .odd:hover{background:rgba(255,23,68,.1);border-color:var(--line-pink);transform:translateY(-1px)}
+    .odd-label{font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+    .odd-val{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#fff;margin-top:2px}
+    .odd.hot{background:linear-gradient(135deg,rgba(245,158,11,.18),rgba(245,158,11,.04));border-color:rgba(245,158,11,.4)}
+    .odd.hot .odd-val{color:var(--gold)}
+    /* ===== WATCH LIVE (BahisNow TV) — replaces odds ===== */
+    .watch-live{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:13px 14px;border-radius:10px;background:linear-gradient(135deg,rgba(255,23,68,.16),rgba(255,23,68,.05));border:1px solid rgba(255,23,68,.4);color:#fff;font-weight:700;font-size:13px;letter-spacing:.02em;transition:all .2s;cursor:pointer}
+    .watch-live:hover{background:linear-gradient(135deg,rgba(255,23,68,.3),rgba(255,23,68,.12));border-color:var(--pink);transform:translateY(-1px)}
+    .watch-live .wl-dot{width:8px;height:8px;border-radius:50%;background:#FF1744;box-shadow:0 0 10px rgba(255,23,68,.9);animation:tvpulse 1.5s ease-in-out infinite;flex-shrink:0}
+    .watch-live .wl-play{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--pink);color:#fff;font-size:10px;box-shadow:0 0 14px rgba(255,23,68,.55);flex-shrink:0}
+    .watch-live .wl-main{display:flex;flex-direction:column;line-height:1.25;text-align:left}
+    .watch-live .wl-sub{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-light)}
+    .watch-live-mini{flex-shrink:0;display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:8px;background:linear-gradient(135deg,rgba(255,23,68,.18),rgba(255,23,68,.05));border:1px solid rgba(255,23,68,.4);color:#fff;font-weight:700;font-size:12px;white-space:nowrap;transition:all .2s}
+    .turkey-match:hover .watch-live-mini{background:linear-gradient(135deg,rgba(255,23,68,.32),rgba(255,23,68,.12));border-color:var(--pink)}
+    .watch-live-mini .wl-dot{width:7px;height:7px;border-radius:50%;background:#FF1744;box-shadow:0 0 8px rgba(255,23,68,.8);animation:tvpulse 1.5s ease-in-out infinite}
+    /* ===== COUNTDOWN ON TICKER BAR (right side) ===== */
+    .ticker-countdown{position:absolute;right:0;top:0;bottom:0;z-index:3;display:flex;align-items:center;gap:10px;padding:0 18px 0 30px;background:linear-gradient(90deg,#23082b,#3a0418);clip-path:polygon(18px 0,100% 0,100% 100%,0 100%);box-shadow:-14px 0 22px rgba(11,14,26,.9)}
+    .tcd-label{font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-light);white-space:nowrap}
+    .tcd-clock{display:inline-flex;align-items:center;gap:7px}
+    .tcd-seg{display:inline-flex;align-items:baseline;gap:2px;color:rgba(255,255,255,.55);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .tcd-seg b{font-family:'Bebas Neue',sans-serif;font-size:17px;color:#fff;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+    @media(max-width:600px){.tcd-label{display:none}.ticker-countdown{gap:8px;padding:0 12px 0 22px}.tcd-clock{gap:6px}}
+
+    /* ===== BONUSES ===== */
+    .bonus-sec{background:linear-gradient(180deg,#0B0E1A,#11152A);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:30px 20px 22px}
+    .bonus-sec .sec-head{margin-bottom:28px}
+    .bonus-grid{display:grid;grid-template-columns:1fr;gap:18px}
+    @media(min-width:760px){.bonus-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1100px){.bonus-grid{grid-template-columns:repeat(3,1fr)}}
+    /* ===== MOBILE CAROUSEL — bonus & match cards become swipe sliders ===== */
+    @media(max-width:640px){
+      .matches-grid,.bonus-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;align-items:flex-start;gap:14px;padding-bottom:14px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+      .matches-grid::-webkit-scrollbar,.bonus-grid::-webkit-scrollbar{display:none}
+      .matches-grid>.match,.bonus-grid>.bonus{flex:0 0 86%;scroll-snap-align:center}
+    }
+    .bonus{display:flex;flex-direction:column;padding:28px 24px;border-radius:18px;background:linear-gradient(145deg,#181B2C,#0F1320);border:1px solid var(--line);position:relative;overflow:hidden;transition:all .3s}
+    .bonus:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(255,23,68,.15)}
+    .bonus.featured{background:linear-gradient(145deg,#3A0A1F,#1A0211);border:1px solid var(--line-pink);box-shadow:0 16px 40px rgba(255,23,68,.2)}
+    .bonus-tag{position:absolute;top:18px;right:18px;padding:3px 10px;border-radius:100px;background:rgba(245,158,11,.18);border:1px solid rgba(245,158,11,.4);color:var(--gold-light);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+    .bonus-icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--pink-deep));display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;box-shadow:0 8px 20px rgba(255,23,68,.3)}
+    .bonus.featured .bonus-icon{background:linear-gradient(135deg,var(--gold),#FF9100)}
+    .bonus-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;margin-bottom:6px;line-height:1.1}
+    .bonus-amt{font-family:'Bebas Neue',sans-serif;font-size:48px;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:14px}
+    .bonus-desc{font-size:13px;color:var(--text-2);line-height:1.55;margin-bottom:20px}
+    .bonus-cta{display:block;width:100%;margin-top:auto;padding:12px;border-radius:10px;background:rgba(255,255,255,.05);color:#fff;font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-align:center;border:1px solid var(--line-2);transition:all .2s}
+    .bonus.featured .bonus-cta{background:linear-gradient(135deg,var(--pink),var(--pink-deep));border-color:transparent}
+    .bonus-cta:hover{background:rgba(255,23,68,.15);border-color:var(--line-pink)}
+    .bonus-toggle{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:12px;padding:11px;border-radius:10px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.4);color:var(--gold-light);font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;transition:all .2s;font-family:inherit}
+    .bonus:hover .bonus-toggle{background:rgba(245,158,11,.2);border-color:var(--gold);color:#fff}
+    .bonus-toggle .chev{transition:transform .3s;font-size:13px;line-height:1}
+    .bonus:hover .bonus-toggle .chev{transform:translateY(2px)}
+    .bonus-details{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .bonus-details.open{max-height:420px}
+    .bonus-details ul{list-style:none;padding:14px 0 2px;margin:0;display:flex;flex-direction:column;gap:9px;border-top:1px solid var(--line);margin-top:10px}
+    .bonus-details li{position:relative;padding-left:20px;font-size:12px;color:var(--text-2);line-height:1.5}
+    .bonus-details li::before{content:"✓";position:absolute;left:0;top:1px;color:var(--gold);font-weight:800;font-size:11px}
+    /* ===== BONUS DETAILS MODAL ===== */
+    .bonus{cursor:pointer}
+    .bonus-toggle{pointer-events:none}
+    .bonus-modal{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}
+    .bonus-modal.open{display:flex}
+    .bonus-modal-overlay{position:absolute;inset:0;background:rgba(5,7,15,.78);backdrop-filter:blur(6px)}
+    .bonus-modal-box{position:relative;z-index:1;width:100%;max-width:460px;max-height:88vh;overflow-y:auto;background:linear-gradient(160deg,#1B1F33,#0E1120);border:1px solid var(--line-pink);border-radius:20px;padding:34px 30px 30px;box-shadow:0 40px 90px rgba(0,0,0,.6);animation:bmIn .28s cubic-bezier(.2,.8,.3,1)}
+    @keyframes bmIn{from{opacity:0;transform:translateY(24px) scale(.96)}to{opacity:1;transform:none}}
+    .bonus-modal-close{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line-2);background:rgba(255,255,255,.05);color:#fff;font-size:20px;line-height:1;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
+    .bonus-modal-close:hover{background:var(--pink);border-color:var(--pink)}
+    .bm-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--pink-deep));display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:14px;box-shadow:0 8px 20px rgba(255,23,68,.3)}
+    .bm-amt{font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+    .bm-title{font-family:'Bebas Neue',sans-serif;font-size:26px;color:#fff;margin-bottom:10px;letter-spacing:.01em}
+    .bm-desc{font-size:13.5px;color:var(--text-2);line-height:1.6;margin:10px 0 0}
+    .bm-perks{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-direction:column;gap:11px}
+    .bm-perks li{position:relative;padding-left:26px;font-size:12.5px;color:var(--text-2);line-height:1.35}
+    .bm-perks li::before{content:"✓";position:absolute;left:0;top:-1px;width:17px;height:17px;border-radius:50%;background:rgba(245,158,11,.18);color:var(--gold);font-size:10px;font-weight:900;display:flex;align-items:center;justify-content:center}
+    .bm-terms ul{list-style:none;padding:16px 0 4px;margin:14px 0 22px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:11px}
+    .bm-terms li{position:relative;padding-left:22px;font-size:13px;color:var(--text-2);line-height:1.5}
+    .bm-terms li::before{content:"✓";position:absolute;left:0;top:1px;color:var(--gold);font-weight:800}
+    .bm-cta{display:block;text-align:center;padding:14px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--pink-deep));color:#fff;font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 10px 26px rgba(255,23,68,.4);transition:transform .15s}
+    .bm-cta:hover{transform:translateY(-1px)}
+    @media(max-width:640px){.bm-cta{padding:10px 22px;font-size:11px;max-width:220px;margin:14px auto 2px;letter-spacing:.06em}}
+    .bm-desc:empty{display:none}
+    .bm-terms .bm-lead{font-size:13.5px;color:var(--text-2);line-height:1.6;margin:0 0 10px}
+    .bm-terms h4{font-family:'Bebas Neue',sans-serif;font-size:19px;color:var(--gold-light);margin:20px 0 8px;letter-spacing:.02em}
+    .bm-terms table{width:100%;border-collapse:collapse;margin:4px 0 6px;font-size:12.5px}
+    .bm-terms th{background:rgba(255,23,68,.14);color:#fff;font-weight:800;text-align:left;padding:8px 10px;border:1px solid var(--line)}
+    .bm-terms td{padding:7px 10px;border:1px solid var(--line);color:var(--text-2)}
+    .bm-terms tbody tr:nth-child(even){background:rgba(255,255,255,.03)}
+    .bm-terms td:first-child{color:#fff;font-weight:700;white-space:nowrap}
+    /* 3-up campaign bonus grid + compact tweaks */
+    .bonus-grid-3{max-width:1280px;margin-left:auto;margin-right:auto}
+    .bonus-amt.amt-sm{font-size:34px}
+    /* ===== MODAL — two-column promotion layout on desktop ===== */
+    @media(min-width:760px){
+      .bonus-modal-box{display:flex;gap:0;max-width:900px;max-height:86vh;overflow:hidden;padding:0}
+      .bm-head{flex:0 0 300px;display:flex;flex-direction:column;justify-content:center;padding:40px 32px;background:linear-gradient(165deg,#2a1030,#140a1c);border-right:1px solid var(--line);position:relative;overflow:hidden}
+      .bm-head>*{position:relative;z-index:1}
+      .bm-head::after{content:"";position:absolute;left:-40px;bottom:-60px;width:230px;height:230px;background:radial-gradient(circle,rgba(255,23,68,.22),transparent 70%);pointer-events:none;z-index:0}
+      .bm-head .bm-cta{margin-top:24px}
+      .bm-body{flex:1;min-width:0;overflow-y:auto;padding:36px 36px 30px}
+      .bm-body .bm-lead{margin-top:0}
+      .bm-body h4:first-child{margin-top:0}
+      .bm-amt{font-size:64px}
+      .bm-title{font-size:30px;margin-bottom:0}
+      .bm-terms table{font-size:13.5px}
+      .bm-terms th,.bm-terms td{padding:9px 12px}
+    }
+
+    /* ===== ARTICLES / TIPS ===== */
+    .articles-sec{background:#0B0E1A}
+    .articles-grid{display:grid;grid-template-columns:1fr;gap:20px}
+    @media(min-width:760px){.articles-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:1100px){.articles-grid{grid-template-columns:repeat(3,1fr)}}
+    .article{background:linear-gradient(145deg,#181B2C,#11152A);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+    .article:hover{transform:translateY(-4px);border-color:var(--line-pink);box-shadow:0 20px 48px rgba(0,0,0,.4)}
+    .article-img{aspect-ratio:16/9;background:linear-gradient(135deg,var(--pink-deep),var(--navy-3));background-size:cover;background-position:center;position:relative;overflow:hidden}
+    .article-img.tr{background-image:linear-gradient(135deg,rgba(227,10,23,.7),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800&q=70')}
+    .article-img.laliga{background-image:linear-gradient(135deg,rgba(255,23,68,.7),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800&q=70')}
+    .article-img.wc{background-image:linear-gradient(135deg,rgba(245,158,11,.6),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=800&q=70')}
+    .article-img.stats{background-image:linear-gradient(135deg,rgba(16,185,129,.6),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1486286701208-1d58e9338013?w=800&q=70')}
+    .article-img.system{background-image:linear-gradient(135deg,rgba(123,47,255,.7),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1522778034537-20a2486be803?w=800&q=70')}
+    .article-img.casino{background-image:linear-gradient(135deg,rgba(245,158,11,.6),rgba(0,0,0,.6)),url('https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=800&q=70')}
+    .article-cat{position:absolute;top:14px;left:14px;padding:5px 12px;border-radius:100px;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);color:#fff;font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15)}
+    .article-cat.hot{background:linear-gradient(135deg,var(--pink),var(--pink-deep));border-color:transparent}
+    .article-body{padding:22px;flex:1;display:flex;flex-direction:column}
+    .article-meta{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);margin-bottom:10px;letter-spacing:.04em;font-weight:600}
+    .article-meta::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--gold)}
+    .article-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;line-height:1.15;margin-bottom:10px;letter-spacing:.005em}
+    .article-desc{font-size:13px;color:var(--text-2);line-height:1.55;margin-bottom:16px;flex:1}
+    .article-link{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--pink-bright);font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+
+    /* ===== LALIGA SPONSOR (premium press-kit) ===== */
+    .laliga-sec{padding:48px 20px 72px;background:#08090F;position:relative;overflow:hidden}
+    .laliga-sec::before{content:"";position:absolute;top:0;left:0;right:0;height:420px;background:radial-gradient(60% 100% at 50% 0%,rgba(255,23,68,.07),transparent 65%);pointer-events:none}
+    .laliga-wrap{max-width:1120px;margin:0 auto;position:relative;z-index:1}
+
+    /* Eyebrow */
+    .ll-eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:22px}
+    .ll-eyebrow .line{height:1px;width:48px;background:linear-gradient(90deg,transparent,var(--pink))}
+    .ll-eyebrow .line.r{background:linear-gradient(90deg,var(--pink),transparent)}
+    .ll-eyebrow .tag{font-size:11px;font-weight:700;letter-spacing:.32em;color:var(--pink);text-transform:uppercase}
+
+    /* Title + intro */
+    .ll-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,4.4vw,54px);color:#fff;text-align:center;letter-spacing:.012em;line-height:1;margin:0 0 14px}
+    .ll-title .pink{background:linear-gradient(135deg,#FF4081,#FF1744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .ll-lede{font-size:14px;color:var(--text-2);text-align:center;max-width:540px;margin:0 auto 40px;line-height:1.75}
+
+    /* Banner — compact credential, refined */
+    .ll-banner-wrap{display:flex;justify-content:center;margin:0 0 40px;padding:0 20px;position:relative}
+    .ll-banner-wrap::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;max-width:360px;height:75%;background:radial-gradient(50% 50% at 50% 50%,rgba(255,23,68,.1) 0%,transparent 70%);pointer-events:none;z-index:0}
+    .ll-banner{max-width:260px;width:100%;height:auto;position:relative;z-index:1;filter:drop-shadow(0 10px 28px rgba(255,23,68,.22)) drop-shadow(0 3px 10px rgba(0,0,0,.35))}
+
+    /* Sound control — visible, above videos */
+    .ll-soundbar{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 0 24px}
+    .ll-sound-btn{display:inline-flex;align-items:center;gap:10px;padding:11px 22px;background:linear-gradient(135deg,rgba(255,23,68,.16),rgba(255,23,68,.06));border:1px solid rgba(255,23,68,.4);border-radius:99px;color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .2s;font-family:inherit}
+    .ll-sound-btn:hover{background:linear-gradient(135deg,rgba(255,23,68,.26),rgba(255,23,68,.12));border-color:var(--pink);transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,23,68,.25)}
+    .ll-sound-btn .ico{width:18px;height:18px;display:inline-block}
+    .ll-sound-btn .l-on,.ll-sound-btn .l-off{line-height:1}
+    .ll-sound-btn .l-on{display:none}
+    .ll-sound-btn.is-on .l-on{display:inline}
+    .ll-sound-btn.is-on .l-off{display:none}
+    .ll-sound-btn.is-on{background:linear-gradient(135deg,rgba(0,200,120,.18),rgba(0,200,120,.06));border-color:rgba(0,200,120,.5)}
+    .ll-sound-hint{font-size:11px;color:var(--muted);letter-spacing:.04em}
+
+    /* Sponsorship video — same scale as TV section's big video */
+    .ll-video-wrap{max-width:1100px;width:100%;margin:0 auto 56px;position:relative}
+    .ll-video{position:relative;border-radius:20px;overflow:hidden;background:#000;aspect-ratio:16/9;box-shadow:0 32px 80px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08),0 0 80px rgba(255,23,68,.12);width:100%}
+    .ll-video video{width:100%;height:100%;object-fit:cover;display:block;border:0;position:relative;z-index:1}
+    .ll-video-cap{text-align:center;font-size:10px;color:var(--muted);letter-spacing:.24em;text-transform:uppercase;font-weight:700;margin:16px 0 0}
+
+    /* Play-with-sound poster overlay */
+    .play-poster{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:linear-gradient(180deg,rgba(8,9,15,.35) 0%,rgba(8,9,15,.65) 100%);border:0;cursor:pointer;color:#fff;font-family:inherit;transition:background .2s,opacity .25s}
+    .play-poster:hover{background:linear-gradient(180deg,rgba(8,9,15,.25) 0%,rgba(8,9,15,.55) 100%)}
+    .play-poster.is-hidden{opacity:0;pointer-events:none}
+    .play-poster .pp-icon{width:84px;height:84px;border-radius:50%;background:rgba(255,23,68,.92);display:flex;align-items:center;justify-content:center;font-size:30px;padding-left:6px;box-shadow:0 16px 40px rgba(255,23,68,.5);transition:transform .2s}
+    .play-poster:hover .pp-icon{transform:scale(1.06)}
+    .play-poster::after{content:"";position:absolute;width:84px;height:84px;border-radius:50%;border:2px solid rgba(255,23,68,.5);animation:ppring 2s ease-out infinite;left:50%;top:50%;transform:translate(-50%,-50%);margin-top:-22px}
+    @media(min-width:760px){.play-poster::after{margin-top:-25px}}
+    @keyframes ppring{0%{transform:translate(-50%,-50%) scale(1);opacity:.8}100%{transform:translate(-50%,-50%) scale(1.6);opacity:0}}
+    .play-poster .pp-text{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;background:rgba(8,9,15,.7);padding:8px 18px;border-radius:99px;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12)}
+
+    /* Stats strip — typographic, no cards */
+    .ll-stats{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-end;gap:clamp(28px,6vw,72px);padding:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:64px}
+    .ll-stat{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:90px}
+    .ll-stat .num{font-family:'Bebas Neue',sans-serif;font-size:clamp(34px,4.2vw,48px);color:#fff;letter-spacing:.015em;line-height:1}
+    .ll-stat .num .accent{color:var(--gold)}
+    .ll-stat .lbl{font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+
+    /* ===== BAHISNOW TV SECTION (standalone, premium streaming look) ===== */
+    .bntv-sec{position:relative;padding:52px 20px 72px;background:radial-gradient(80% 60% at 20% 0%,rgba(255,23,68,.10),transparent 60%),radial-gradient(60% 50% at 90% 100%,rgba(245,158,11,.06),transparent 60%),#06070C;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .bntv-sec::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;opacity:.7}
+    .bntv-sec::after{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:50%;height:1px;background:linear-gradient(90deg,transparent,var(--pink),transparent);opacity:.5}
+    .bntv-wrap{max-width:1200px;margin:0 auto;position:relative;z-index:1}
+
+    /* Header */
+    .bntv-eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:24px}
+    .bntv-eyebrow .ll{height:1px;width:48px;background:linear-gradient(90deg,transparent,var(--pink))}
+    .bntv-eyebrow .ll.r{background:linear-gradient(90deg,var(--pink),transparent)}
+    .bntv-eyebrow .tag{font-size:11px;font-weight:700;letter-spacing:.26em;color:var(--pink);text-transform:uppercase}
+    .bntv-brand-mark{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:14px}
+    .bntv-brand-mark img{height:64px;width:auto;display:block;filter:drop-shadow(0 8px 24px rgba(255,23,68,.45))}
+    .bntv-brand-mark .word{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,5vw,60px);color:#fff;letter-spacing:.02em;line-height:1}
+    .bntv-brand-mark .word .gold{color:var(--gold)}
+    .bntv-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4vw,46px);color:#fff;letter-spacing:.01em;line-height:1.05;text-align:center;margin:0 auto 14px;max-width:780px}
+    .bntv-headline .pink{background:linear-gradient(135deg,#FF4081,#FF1744);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .bntv-lede{font-size:15px;color:var(--text-2);text-align:center;line-height:1.7;max-width:620px;margin:0 auto 48px}
+
+    /* Big centered video — full container width */
+    .bntv-grid{display:flex;flex-direction:column;align-items:center;gap:32px;margin-bottom:48px}
+
+    .bntv-screen{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:16/9;background:#000;box-shadow:0 32px 80px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08),0 0 80px rgba(255,23,68,.14);width:100%;max-width:1100px}
+    .bntv-screen video{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
+    .bntv-tv-frame{position:absolute;inset:-1px;border-radius:18px;pointer-events:none;z-index:0;background:linear-gradient(135deg,rgba(255,23,68,.25),transparent 30%,transparent 70%,rgba(245,158,11,.18))}
+    .bntv-live-badge{position:absolute;top:18px;left:18px;z-index:3;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;background:rgba(8,9,15,.78);border:1px solid rgba(255,23,68,.55);border-radius:6px;font-size:11px;font-weight:800;letter-spacing:.16em;color:#fff;text-transform:uppercase;backdrop-filter:blur(10px);pointer-events:none}
+    .bntv-live-badge .ld{width:8px;height:8px;border-radius:50%;background:#FF1744;box-shadow:0 0 12px rgba(255,23,68,1);animation:tvpulse 1.4s ease-in-out infinite}
+    .bntv-corner{position:absolute;width:32px;height:32px;border:2px solid rgba(255,23,68,.6);pointer-events:none;z-index:2}
+    .bntv-corner.tl{top:0;left:0;border-right:0;border-bottom:0;border-top-left-radius:18px}
+    .bntv-corner.tr{top:0;right:0;border-left:0;border-bottom:0;border-top-right-radius:18px}
+    .bntv-corner.bl{bottom:0;left:0;border-right:0;border-top:0;border-bottom-left-radius:18px}
+    .bntv-corner.br{bottom:0;right:0;border-left:0;border-top:0;border-bottom-right-radius:18px}
+
+    /* CTA — centered below the video */
+    .bntv-cta-row{display:flex;justify-content:center;margin-top:8px}
+    .bntv-cta{display:inline-flex;align-items:center;gap:12px;padding:18px 44px;background:linear-gradient(135deg,var(--pink),var(--pink-deep));color:#fff;font-weight:800;font-size:14px;letter-spacing:.12em;text-transform:uppercase;border-radius:12px;box-shadow:0 14px 36px rgba(255,23,68,.5);transition:all .2s}
+    .bntv-cta::after{content:"→";transition:transform .2s}
+    .bntv-cta:hover{transform:translateY(-2px);box-shadow:0 18px 44px rgba(255,23,68,.6)}
+    .bntv-cta:hover::after{transform:translateX(4px)}
+
+    /* Bottom strip — broadcast info */
+    .bntv-marquee{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px 32px;padding:24px 0 0;border-top:1px solid var(--line)}
+    .bntv-marquee-item{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--text-2);letter-spacing:.06em;font-weight:500}
+    .bntv-marquee-item .bullet{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+    .bntv-marquee-item strong{color:#fff;font-weight:800;font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.05em}
+
+    .partners-label{max-width:1100px;margin:60px auto 18px;text-align:center;font-size:13px;color:var(--muted);letter-spacing:.04em;font-weight:600}
+    .partners{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+    @media(min-width:600px){.partners{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:900px){.partners{grid-template-columns:repeat(4,1fr)}}
+    @media(min-width:1100px){.partners{grid-template-columns:repeat(6,1fr)}}
+    .partner{height:56px;border-radius:10px;background:rgba(255,255,255,.02);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--text-2);font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:.06em;transition:all .2s;text-align:center;padding:0 8px;position:relative;overflow:hidden}
+    .partner::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;transition:width .2s}
+    .partner:hover{background:rgba(255,255,255,.05);color:#fff;border-color:var(--line-2)}
+    .partner:hover::before{width:6px}
+    .team-rma::before{background:linear-gradient(180deg,#FFFFFF,#FEBE10)}
+    .team-bar::before{background:linear-gradient(180deg,#A50044,#004D98)}
+    .team-atm::before{background:linear-gradient(180deg,#CB3524,#FFFFFF)}
+    .team-cel::before{background:#8FBCDB}
+    .team-get::before{background:#005CA9}
+    .team-vil::before{background:#FFCB05}
+    .team-sev::before{background:linear-gradient(180deg,#FFFFFF,#D31E26)}
+    .team-soc::before{background:linear-gradient(180deg,#003C82,#FFFFFF)}
+    .team-bil::before{background:linear-gradient(180deg,#EE2523,#FFFFFF)}
+    .team-bet::before{background:linear-gradient(180deg,#00954C,#FFFFFF)}
+    .team-osa::before{background:#0B419A}
+    .team-gir::before{background:linear-gradient(180deg,#CD2C28,#FFFFFF)}
+
+    /* ===== FAQ (Why BahisNow) ===== */
+    .faq-sec{background:linear-gradient(180deg,#0B0E1A,#11152A)}
+    .faq-wrap{max-width:840px;margin:0 auto}
+    .faq-item{border:1px solid var(--line);border-radius:14px;background:linear-gradient(145deg,#181B2C,#11152A);margin-bottom:12px;overflow:hidden;transition:all .25s}
+    .faq-item:hover{border-color:var(--line-pink)}
+    .faq-item.open{border-color:var(--line-pink);box-shadow:0 16px 40px rgba(255,23,68,.12)}
+    .faq-q{padding:22px 26px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;color:#fff;font-weight:700;font-size:15px;letter-spacing:.01em;line-height:1.4;gap:16px;user-select:none}
+    .faq-q-icon{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:rgba(255,23,68,.1);border:1px solid var(--line-pink);display:flex;align-items:center;justify-content:center;color:var(--pink-bright);font-size:18px;font-weight:900;transition:all .25s}
+    .faq-item.open .faq-q-icon{background:linear-gradient(135deg,var(--pink),var(--pink-deep));border-color:transparent;color:#fff;transform:rotate(45deg)}
+    .faq-q-text{flex:1}
+    .faq-a{padding:0 26px 22px;color:var(--text-2);font-size:14px;line-height:1.75;display:none;border-top:1px solid var(--line);margin-top:0;padding-top:18px}
+    .faq-item.open .faq-a{display:block}
+    .faq-a strong{color:var(--gold-light)}
+
+    /* ===== CTA ===== */
+    .cta-bottom{padding:96px 20px;background:radial-gradient(ellipse 60% 80% at 50% 100%,rgba(255,23,68,.25) 0%,#0B0E1A 60%);text-align:center;position:relative;overflow:hidden}
+    .cta-bottom h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,7vw,72px);color:#fff;margin-bottom:18px;line-height:1.02}
+    .cta-bottom h2 .gold{background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .cta-bottom p{color:var(--text-2);font-size:17px;max-width:560px;margin:0 auto 32px;line-height:1.55}
+    .cta-bottom .cta-pri{display:inline-block;max-width:340px;width:100%;font-size:15px}
+
+    /* ===== FOOTER ===== */
+    .footer{background:#06080F;color:var(--muted);padding:64px 20px 32px;border-top:1px solid var(--line)}
+    .footer-inner{max-width:1680px;margin:0 auto}
+    .footer-top{display:grid;grid-template-columns:1fr 1fr;gap:30px 20px;margin-bottom:40px}
+    .footer-brand-block{grid-column:1 / -1}
+    @media(min-width:760px){.footer-top{grid-template-columns:2fr 1fr 1fr 1fr}.footer-brand-block{grid-column:auto}}
+    .footer-brand-block{}
+    .footer-brand{font-family:'Russo One',sans-serif;font-size:28px;margin-bottom:14px}
+    .footer-brand img{height:52px;width:auto;display:block;filter:drop-shadow(0 4px 16px rgba(255,23,68,.3))}
+    .footer-tag{display:inline-block;padding:3px 12px;border-radius:100px;background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:var(--gold-light);font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
+    .footer-desc{font-size:13px;color:var(--text-2);line-height:1.65;max-width:340px}
+    .footer-col h4{font-family:'Bebas Neue',sans-serif;font-size:14px;color:#fff;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .footer-col a{font-size:13px;color:var(--text-2);transition:color .2s}
+    .footer-col a:hover{color:#fff}
+    .footer-bottom{padding-top:24px;border-top:1px solid var(--line);text-align:center;font-size:11px;color:#5A6072;letter-spacing:.06em;line-height:1.7}
+    .footer-bottom .icons{display:flex;justify-content:center;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+    .footer-bottom .badge{padding:5px 12px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--text-2)}
+
+    /* ===== LICENSE BADGE ===== */
+    .license-wrap{display:flex;justify-content:center;margin:32px 0 24px}
+    .license-link{display:inline-flex;align-items:center;gap:16px;color:var(--text-2);transition:color .2s;font-size:16px;padding:10px 18px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid var(--line)}
+    .license-link:hover{color:#fff;background:rgba(255,255,255,.04);border-color:rgba(16,185,129,.3)}
+    .license-img{width:64px;height:64px;flex-shrink:0;display:block}
+    .license-link span{font-weight:600;letter-spacing:.02em;line-height:1.3}
+    .license-link span strong{color:var(--emerald);font-weight:800;display:block;font-size:17px;letter-spacing:.04em}
+    .license-link span small{color:var(--muted);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;display:block;margin-top:2px}
+  </style>
+</head>
+<body>
+
+  <!-- WORLD CUP TICKER -->
+  <div class="ticker">
+    <div class="ticker-label"><span class="dot"></span>Dünya Kupası</div>
+    <div class="ticker-mask">
+      <div class="ticker-track">
+        <div class="ticker-item"><span class="league">Grup C</span> <strong>Türkiye - Ukrayna</strong> <span class="sep">·</span> <span class="date">19 HAZ · 22:00</span></div>
+        <div class="ticker-item"><span class="league">Grup A</span> <strong>Brezilya - Arjantin</strong> <span class="sep">·</span> <span class="date">20 HAZ · 19:00</span></div>
+        <div class="ticker-item"><span class="league">Grup F</span> <strong>Fransa - İspanya</strong> <span class="sep">·</span> <span class="date">21 HAZ · 22:00</span></div>
+        <div class="ticker-item"><span class="league">Grup E</span> <strong>İngiltere - Portekiz</strong> <span class="sep">·</span> <span class="date">22 HAZ · 21:00</span></div>
+        <div class="ticker-item"><span class="league">Grup C</span> <strong>Türkiye - Almanya</strong> <span class="sep">·</span> <span class="date">23 HAZ · 22:00</span></div>
+        <div class="ticker-item"><span class="league">Grup B</span> <strong>Hollanda - Belçika</strong> <span class="sep">·</span> <span class="date">24 HAZ · 19:00</span></div>
+        <div class="ticker-item"><span class="league">Grup D</span> <strong>İtalya - Hırvatistan</strong> <span class="sep">·</span> <span class="date">25 HAZ · 22:00</span></div>
+        <div class="ticker-item"><span class="league">Grup C</span> <strong>Türkiye - Japonya</strong> <span class="sep">·</span> <span class="date">27 HAZ · 20:00</span></div>
+        <!-- duplicate for seamless scroll -->
+        <div class="ticker-item"><span class="league">Grup C</span> <strong>Türkiye - Ukrayna</strong> <span class="sep">·</span> <span class="date">19 HAZ · 22:00</span></div>
+        <div class="ticker-item"><span class="league">Grup A</span> <strong>Brezilya - Arjantin</strong> <span class="sep">·</span> <span class="date">20 HAZ · 19:00</span></div>
+        <div class="ticker-item"><span class="league">Grup F</span> <strong>Fransa - İspanya</strong> <span class="sep">·</span> <span class="date">21 HAZ · 22:00</span></div>
+        <div class="ticker-item"><span class="league">Grup E</span> <strong>İngiltere - Portekiz</strong> <span class="sep">·</span> <span class="date">22 HAZ · 21:00</span></div>
+        <div class="ticker-item"><span class="league">Grup C</span> <strong>Türkiye - Almanya</strong> <span class="sep">·</span> <span class="date">23 HAZ · 22:00</span></div>
+        <div class="ticker-item"><span class="league">Grup B</span> <strong>Hollanda - Belçika</strong> <span class="sep">·</span> <span class="date">24 HAZ · 19:00</span></div>
+        <div class="ticker-item"><span class="league">Grup D</span> <strong>İtalya - Hırvatistan</strong> <span class="sep">·</span> <span class="date">25 HAZ · 22:00</span></div>
+        <div class="ticker-item"><span class="league">Grup C</span> <strong>Türkiye - Japonya</strong> <span class="sep">·</span> <span class="date">27 HAZ · 20:00</span></div>
+      </div>
+    </div>
+    <div class="ticker-countdown" id="wcCountdown">
+      <span class="tcd-label">Başlamasına</span>
+      <span class="tcd-clock">
+        <span class="tcd-seg"><b data-cd="days">--</b>g</span>
+        <span class="tcd-seg"><b data-cd="hours">--</b>s</span>
+        <span class="tcd-seg"><b data-cd="minutes">--</b>dk</span>
+        <span class="tcd-seg"><b data-cd="seconds">--</b>sn</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="brand">
+        <img class="brand-img" src="bahisnow-logo.png" alt="BahisNow" />
+      </a>
+      <div class="nav-links">
+        <a href="#turkiye" class="nav-link">Türkiye</a>
+        <a href="#maclar" class="nav-link">Maçlar</a>
+        <a href="#bonuslar" class="nav-link">Bonuslar</a>
+        <a href="#sponsor" class="nav-link">Sponsorluk</a>
+        <a href="#" class="nav-tv" data-bahisnow-tv><img src="tv(1).png" alt="" /><span>BahisNow TV</span></a>
+      </div>
+      <div class="nav-countdown" title="Dünya Kupası 2026 başlamasına">
+        <span class="navcd-ico">⚽</span>
+        <span class="navcd-seg"><b data-cd="days">--</b>g</span>
+        <span class="navcd-seg"><b data-cd="hours">--</b>s</span>
+        <span class="navcd-seg"><b data-cd="minutes">--</b>dk</span>
+      </div>
+      <div class="nav-cta-group">
+        <a href="#" class="nav-login">Giriş</a>
+        <a href="#" class="nav-cta">Üye Ol</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-spotlight"></div>
+    <div class="hero-slider" id="heroSlider">
+      <div class="hs-viewport">
+        <div class="hs-track">
+          <a class="hs-slide" href="#bonuslar">
+            <picture class="hs-pic">
+              <source media="(max-width:640px)" srcset="iamges/2026_Dunya_Kupasi_Bonus_Bnow(Mobil).jpg" />
+              <img class="hs-img" src="iamges/2026_Dunya_Kupasi_Bonus_Bnow(Ana_Sayfa).jpg" alt="Dünya Kupası 2026 Bonus — BahisNow" />
+            </picture>
+          </a>
+          <a class="hs-slide" href="#bonuslar">
+            <picture class="hs-pic">
+              <source media="(max-width:640px)" srcset="iamges/2026_Dunya_Kupasi_Cekilis_Bnow(Mobil).jpg" />
+              <img class="hs-img" src="iamges/2026_Dunya_Kupasi_Cekilis_Bnow(Ana_Sayfa).jpg" alt="Dünya Kupası 2026 Çekilişi — Final Bileti & PS5 Ödülleri" />
+            </picture>
+          </a>
+          <a class="hs-slide" href="#bonuslar">
+            <picture class="hs-pic">
+              <source media="(max-width:640px)" srcset="iamges/2026_Dunya_Kupasi_Turnuva_Bnow(Mobil).jpg" />
+              <img class="hs-img" src="iamges/2026_Dunya_Kupasi_Turnuva_Bnow(Ana_Sayfa).jpg" alt="Dünya Kupası 2026 Turnuva — BahisNow" />
+            </picture>
+          </a>
+        </div>
+      </div>
+      <button class="hs-arrow hs-prev" type="button" aria-label="Önceki görsel">‹</button>
+      <button class="hs-arrow hs-next" type="button" aria-label="Sonraki görsel">›</button>
+      <div class="hs-dots"></div>
+    </div>
+  </section>
+
+  <!-- BONUSES (moved directly under hero) -->
+  <section class="sec bonus-sec" id="bonuslar">
+    <div class="container">
+      <div class="sec-head">
+        <h2 class="sec-title">DÜNYA KUPASI <span class="gold">BONUSLARI</span></h2>
+        <p class="sec-sub">Maç başına özel ödüller, kombine kazançlar ve sınırsız freebet fırsatları.</p>
+      </div>
+      <div class="bonus-grid bonus-grid-3">
+
+        <!-- 1) BONUS — Bonus Maratonu -->
+        <div class="bonus featured">
+          <div class="bonus-tag">%100'e Varan</div>
+          <div class="bonus-icon">⚽</div>
+          <div class="bonus-title">Dünya Kupası Bonus Maratonu</div>
+          <div class="bonus-amt">%100</div>
+          <p class="bonus-desc">Milli Takım ilerledikçe iade oranın büyür — Grup %25'ten Final %100'e. Çevrim yok.</p>
+          <a href="#" class="bonus-cta">Hemen Katıl →</a>
+          <button class="bonus-toggle" type="button">Detayları Gör <span class="chev">⌄</span></button>
+          <div class="bonus-details">
+            <p class="bm-lead">Milli Takımımızın Dünya Kupası serüveninde her maç yeni bir umut, her tur yeni bir hedef. Grup maçlarından final gecesine kadar Milli Takım coşkusunu doyasıya yaşayın!</p>
+            <h4>Dünya Kupası Aşaması — Bonus Oranı</h4>
+            <table>
+              <thead><tr><th>Aşama</th><th>Bonus Oranı</th></tr></thead>
+              <tbody>
+                <tr><td>⚽ Grup Maçları</td><td>%25</td></tr>
+                <tr><td>⚽ Son 16 Turu</td><td>%40</td></tr>
+                <tr><td>⚽ Çeyrek Final</td><td>%60</td></tr>
+                <tr><td>⚽ Yarı Final</td><td>%80</td></tr>
+                <tr><td>🏆 Final</td><td>%100</td></tr>
+              </tbody>
+            </table>
+            <h4>Turnuva Takvimi</h4>
+            <table>
+              <thead><tr><th>Hafta</th><th>Tarih</th><th>Aktif Tur / Oran</th></tr></thead>
+              <tbody>
+                <tr><td>Hafta 1</td><td>14 Haziran</td><td>Türkiye 1. grup maçı · %25</td></tr>
+                <tr><td>Hafta 2</td><td>20 Haziran</td><td>Türkiye 2. grup maçı · %25</td></tr>
+                <tr><td>Hafta 3</td><td>26 Haziran</td><td>Türkiye 3. grup maçı · %25</td></tr>
+                <tr><td>Hafta 4</td><td>2–8 Temmuz</td><td>Son 16 Turu · %40</td></tr>
+                <tr><td>Hafta 5</td><td>9–15 Temmuz</td><td>Çeyrek %60 → Yarı %80</td></tr>
+                <tr><td>Hafta 6</td><td>16–19 Temmuz</td><td>🏆 Final · %100</td></tr>
+              </tbody>
+            </table>
+            <h4>Kurallar</h4>
+            <ul>
+              <li>Promosyon 11 Haziran – 19 Temmuz 2026 arasındaki yatırımlar için geçerlidir.</li>
+              <li>Min. 1.000 TL yatırım; maksimum bonus 5.000 TL.</li>
+              <li>Yatırım sonrası Türkiye maçına bahis alınmalı (tekli min 1.50, kombine her maç min 1.25 / toplam min 1.50 oran).</li>
+              <li>Her Türkiye maçı/turu kesinleştikten sonra 48 saat içinde tanımlanır.</li>
+              <li>Nakit iade bonusudur — çevrim şartı yoktur.</li>
+              <li>Maks. kazanç 100.000 TL; yalnızca spor bahislerinde kullanılır.</li>
+              <li>Yatırım ve Kayıp Bonusu kullanan üyeler faydalanamaz.</li>
+              <li>Son 24 saat içinde çekim işlemi olmamalıdır.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2) TURNUVA -->
+        <div class="bonus">
+          <div class="bonus-tag">1.000.000₺ Havuz</div>
+          <div class="bonus-icon">🏆</div>
+          <div class="bonus-title">Dünya Kupası Turnuvası</div>
+          <div class="bonus-amt amt-sm">1.000.000₺</div>
+          <p class="bonus-desc">En yüksek kupon oranını tuttur, dev ödül havuzundan pay kap. İlk 200 oyuncu kazanır.</p>
+          <a href="#" class="bonus-cta">Turnuvaya Katıl →</a>
+          <button class="bonus-toggle" type="button">Sıralama & Detay <span class="chev">⌄</span></button>
+          <div class="bonus-details">
+            <p class="bm-lead">Dünya Kupası heyecanını katlamaya hazır mısın? Sahadaki yıldızlar mücadele ederken sen de zirveye oyna! Tam 1.000.000 TL'lik dev ödül havuzu bu turnuvada sahiplerini buluyor.</p>
+            <h4>Ödül Sıralaması</h4>
+            <table>
+              <thead><tr><th>Sıralama</th><th>Kişi</th><th>Kişi Başı</th><th>Toplam</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>1</td><td>150.000₺</td><td>150.000₺</td></tr>
+                <tr><td>2</td><td>1</td><td>100.000₺</td><td>100.000₺</td></tr>
+                <tr><td>3</td><td>1</td><td>75.000₺</td><td>75.000₺</td></tr>
+                <tr><td>4</td><td>1</td><td>50.000₺</td><td>50.000₺</td></tr>
+                <tr><td>5</td><td>1</td><td>40.000₺</td><td>40.000₺</td></tr>
+                <tr><td>6</td><td>1</td><td>25.000₺</td><td>25.000₺</td></tr>
+                <tr><td>7</td><td>1</td><td>22.500₺</td><td>22.500₺</td></tr>
+                <tr><td>8</td><td>1</td><td>20.000₺</td><td>20.000₺</td></tr>
+                <tr><td>9</td><td>1</td><td>17.500₺</td><td>17.500₺</td></tr>
+                <tr><td>10</td><td>1</td><td>15.000₺</td><td>15.000₺</td></tr>
+                <tr><td>11–20</td><td>10</td><td>10.000₺</td><td>100.000₺</td></tr>
+                <tr><td>21–50</td><td>30</td><td>5.000₺</td><td>150.000₺</td></tr>
+                <tr><td>51–100</td><td>50</td><td>2.500₺</td><td>125.000₺</td></tr>
+                <tr><td>101–200</td><td>100</td><td>1.100₺</td><td>110.000₺</td></tr>
+              </tbody>
+            </table>
+            <h4>Kurallar</h4>
+            <ul>
+              <li>Turnuva 11 Haziran – 19 Temmuz 2026 arasında geçerlidir.</li>
+              <li>Min. bahis 1.000 TL; tekli/kombine her maç min 1.40 oran ile otomatik katılım.</li>
+              <li>Yalnızca gerçek para ile yapılan spor bahisleri sıralamaya dahildir (bonus bakiye hariç).</li>
+              <li>Günlük puan, kazanılan en yüksek kupon oranına göre hesaplanır.</li>
+              <li>Turnuva sonunda en yüksek puanlı oyuncular ödül havuzundan pay kazanır.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3) ÇEKİLİŞ -->
+        <div class="bonus">
+          <div class="bonus-tag">100 Talihli</div>
+          <div class="bonus-icon">🎁</div>
+          <div class="bonus-title">Dünya Kupası Çekilişi</div>
+          <div class="bonus-amt amt-sm">VIP Final</div>
+          <p class="bonus-desc">1.000 TL yatır, çekilişe katıl: Final VIP seyahati, PS5, iPad, nakit ve daha fazlası.</p>
+          <a href="#" class="bonus-cta">Çekilişe Katıl →</a>
+          <button class="bonus-toggle" type="button">Ödülleri Gör <span class="chev">⌄</span></button>
+          <div class="bonus-details">
+            <p class="bm-lead">Dünya Kupası boyunca oyna ve birbirinden muhteşem ödülleri kazanma şansı yakala! Çekiliş toplam 100 üyemiz arasında paylaştırılır.</p>
+            <h4>Ödül Havuzu</h4>
+            <table>
+              <thead><tr><th>Kişi</th><th>Ödül</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>Dünya Kupası Finali VIP Seyahati (uçuş + otel + final bileti)</td></tr>
+                <tr><td>2</td><td>Ev sahibi ülkede 5 günlük tatil paketi</td></tr>
+                <tr><td>2</td><td>100.000 TL Nakit Ödül</td></tr>
+                <tr><td>4</td><td>PlayStation 5 PRO + EA Sports FC 26</td></tr>
+                <tr><td>4</td><td>Apple iPad Pro 13"</td></tr>
+                <tr><td>12</td><td>Seçilen takıma ait Forma Seti</td></tr>
+                <tr><td>20</td><td>Dünya Kupası Özel Futbol Topu</td></tr>
+                <tr><td>25</td><td>5.000 TL Bonus</td></tr>
+                <tr><td>30</td><td>2.500 TL Bonus</td></tr>
+              </tbody>
+            </table>
+            <h4>Kurallar</h4>
+            <ul>
+              <li>11 Haziran – 19 Temmuz 2026 arasında tek seferde min. 1.000 TL yatıran üyeler katılır.</li>
+              <li>Türkiye'de kayıtlı kullanıcılar için geçerlidir; toplam 100 talihli.</li>
+              <li>Sonuçlar 23 Temmuz Perşembe saat 17:00'de Promosyonlar sayfasında açıklanır.</li>
+              <li>Hediyeler nakde çevrilemez; 1 hafta içinde talep edilmeyen ödüller yedek talihlilere geçer.</li>
+              <li>Bonus ödüllerinde genel çevrim şartları geçerlidir.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4) TEK MAÇ KAYIP -->
+        <div class="bonus">
+          <div class="bonus-tag">Çevrimsiz İade</div>
+          <div class="bonus-icon">🎯</div>
+          <div class="bonus-title">Tek Maç Kayıp Bonusu</div>
+          <div class="bonus-amt amt-sm">1.000₺'ye</div>
+          <p class="bonus-desc">4+ maçlık kombinen tek maçtan yatarsa, paranın tamamı çevrimsiz bonus olarak iade.</p>
+          <a href="#" class="bonus-cta">Hemen Katıl →</a>
+          <button class="bonus-toggle" type="button">Detayları Gör <span class="chev">⌄</span></button>
+          <div class="bonus-details">
+            <p class="bm-lead">BahisNow tek maçtan yatmaya son veriyor! Maç öncesi en az 4 maç ve 100 TL'lik futbol kombine yap; kuponun tek maçtan kaybederse paranın tamamını "Çevrimsiz Bonus" olarak geri al.</p>
+            <h4>Kurallar</h4>
+            <ul>
+              <li>Faydalanmak için hesabına en az 100 TL yatırım yapmalısın.</li>
+              <li>En fazla çevrimsiz bonus tutarı 1.000 TL'dir.</li>
+              <li>Sadece 4+ maçlık kombineler geçerli; sistem bahisleri hariç.</li>
+              <li>Her bir maçın oranı en az 1.80 olmalıdır.</li>
+              <li>Bonusla yapılan bahisler dahil değildir; günde maks. 1 kez.</li>
+              <li>Bozdurulan / bedava bahisle yapılan kuponlar geçersizdir.</li>
+              <li>Maç sonunda canlı destekten talep edilir; 24 saat içinde tanımlanır.</li>
+              <li>Bedava bahisten elde edilecek maks. kazanç bonusun 10 katıdır.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5) %15 KAYIP -->
+        <div class="bonus">
+          <div class="bonus-tag">Çevrimsiz</div>
+          <div class="bonus-icon">🔄</div>
+          <div class="bonus-title">%15 Kayıp Bonusu</div>
+          <div class="bonus-amt">%15</div>
+          <p class="bonus-desc">Günlük kaybının %15'i çevrimsiz olarak otomatik hesabında. Her gün, sınırsız.</p>
+          <a href="#" class="bonus-cta">Bonusu Al →</a>
+          <button class="bonus-toggle" type="button">Detayları Gör <span class="chev">⌄</span></button>
+          <div class="bonus-details">
+            <p class="bm-lead">Hız kesmeden oyunlarına devam et! %15 Kayıp Bonusu yatırım sırasında seçilir; kaybının ardından otomatik hesabına yansır. Çevrim şartı yoktur.</p>
+            <h4>Kurallar</h4>
+            <ul>
+              <li>Yatırım sırasında, yatırım sayfasından seçilmelidir.</li>
+              <li>En az 10 TL kayıp şartı vardır; çevrim şartı yoktur.</li>
+              <li>Her gün, sınırsız faydalanılır (TR saati 03:00–02:59 arası gün baz alınır).</li>
+              <li>Net Kayıp = Son Yatırım − Mevcut Bakiye (200 TL altı bakiyeler için de talep edilebilir).</li>
+              <li>İlk yatırım / yatırım bonusu alanlar aynı anda faydalanamaz.</li>
+              <li>Kayıptan sonraki 24 saat içinde talep edilmelidir.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6) %10 ÇEVRİMSİZ YATIRIM -->
+        <div class="bonus">
+          <div class="bonus-tag">Üst Limitsiz</div>
+          <div class="bonus-icon">💸</div>
+          <div class="bonus-title">%10 Çevrimsiz Yatırım</div>
+          <div class="bonus-amt">%10</div>
+          <p class="bonus-desc">Her yatırıma üst limitsiz %10 çevrimsiz yatırım bonusu. Min. 50 TL yatırım.</p>
+          <a href="#" class="bonus-cta">Bonusu Al →</a>
+          <button class="bonus-toggle" type="button">Detayları Gör <span class="chev">⌄</span></button>
+          <div class="bonus-details">
+            <p class="bm-lead">Yapacağın her yatırım işlemine üst limitsiz %10 çevrimsiz yatırım bonusu fırsatı BahisNow'da!</p>
+            <h4>Kurallar</h4>
+            <ul>
+              <li>Üst limitsiz faydalanılır; min. yatırım 50 TL.</li>
+              <li>Spor çevrimi: (yatırım + bonus) 1 kez, min. 1.99 oran (kombinede her maç min. 1.25).</li>
+              <li>Casino çevrimi: (yatırım + bonus) 1 kez; Canlı Casino & Crash oyunları %20 katkı.</li>
+              <li>Çift ihtimalli oyunlar (Baccarat, rulet tek-çift / kırmızı-siyah) çevrime dahil değildir.</li>
+              <li>Bonus, yatırım sırasında seçilmeli; otomatik tanımlanır.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TURKEY SECTION -->
+  <section class="sec turkey-sec" id="turkiye">
+    <div class="turkey-bg"></div>
+    <div class="turkey-flag-blur"></div>
+    <div class="turkey-star"></div>
+    <div class="container">
+      <div class="turkey-grid">
+        <div class="turkey-content">
+          <div class="turkey-flag-big">
+            <div class="turkey-flag"></div>
+            <div>
+              <div class="turkey-team-label">A Milli Takım</div>
+              <div class="turkey-team-sub">Dünya Kupası 2026 · Grup D</div>
+            </div>
+          </div>
+          <h2 class="turkey-h2">AY-YILDIZLI <span style="color:#E30A17">SAHALARDA</span></h2>
+          <p class="turkey-desc">
+            Türkiye'nin tüm Dünya Kupası grup maçlarını <strong style="color:#fff">BahisNow TV'de canlı ve ücretsiz</strong> izle. HD kalite, kesintisiz yayın ve <strong style="color:#fff">Türkçe anlatım</strong> her maçta. Ay-yıldızlı yolculuğu bizimle takip et.
+          </p>
+          <div class="turkey-stats">
+            <div class="turkey-stat"><div class="turkey-stat-num">HD</div><div class="turkey-stat-label">Kesintisiz Yayın</div></div>
+            <div class="turkey-stat"><div class="turkey-stat-num">7/24</div><div class="turkey-stat-label">Türkçe Anlatım</div></div>
+          </div>
+        </div>
+
+        <div class="turkey-matches">
+          <a href="#" class="turkey-match">
+            <div class="turkey-match-date">
+              <div class="turkey-match-day">14</div>
+              <div class="turkey-match-month">Haz</div>
+            </div>
+            <div class="tm-flags"><img src="icons/australia.png" alt=""><img src="icons/turkey.png" alt=""></div>
+            <div class="turkey-match-info">
+              <div class="turkey-match-teams">Avustralya - Türkiye</div>
+              <div class="turkey-match-comp">Dünya Kupası · Grup D · 1. Maç · 07:00</div>
+            </div>
+            <span class="watch-live-mini"><span class="wl-dot"></span>▶ Canlı İzle</span>
+          </a>
+          <a href="#" class="turkey-match">
+            <div class="turkey-match-date">
+              <div class="turkey-match-day">20</div>
+              <div class="turkey-match-month">Haz</div>
+            </div>
+            <div class="tm-flags"><img src="icons/turkey.png" alt=""><img src="icons/paraguay.png" alt=""></div>
+            <div class="turkey-match-info">
+              <div class="turkey-match-teams">Türkiye - Paraguay</div>
+              <div class="turkey-match-comp">Dünya Kupası · Grup D · 2. Maç · 06:00</div>
+            </div>
+            <span class="watch-live-mini"><span class="wl-dot"></span>▶ Canlı İzle</span>
+          </a>
+          <a href="#" class="turkey-match">
+            <div class="turkey-match-date">
+              <div class="turkey-match-day">26</div>
+              <div class="turkey-match-month">Haz</div>
+            </div>
+            <div class="tm-flags"><img src="icons/turkey.png" alt=""><img src="icons/united-states.png" alt=""></div>
+            <div class="turkey-match-info">
+              <div class="turkey-match-teams">Türkiye - ABD</div>
+              <div class="turkey-match-comp">Dünya Kupası · Grup D · 3. Maç · 05:00</div>
+            </div>
+            <span class="watch-live-mini"><span class="wl-dot"></span>▶ Canlı İzle</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIVE MATCHES -->  <!-- LIVE MATCHES -->
+  <section class="sec matches-sec" id="maclar">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-tag">⚽ Maç Programı</div>
+        <h2 class="sec-title">CANLI <span class="gold">YAYIN</span></h2>
+        <p class="sec-sub">LaLiga, Premier League, Bundesliga ve Dünya Kupası — tüm maçlar BahisNow TV'de HD kalitede, ücretsiz ve kesintisiz.</p>
+      </div>
+      <div class="match-filters">
+        <div class="match-tabs">
+          <button class="match-tab active" data-tab="all">Tüm Maçlar</button>
+          <button class="match-tab" data-tab="turkey"><img class="tab-flag" src="icons/turkey.png" alt="" /> Türkiye Maçları</button>
+        </div>
+        <div class="match-search">
+          <span class="ms-ico">🔍</span>
+          <input type="text" id="matchSearch" placeholder="Takım ara…  (örn. Türkiye, Brezilya)" autocomplete="off">
+        </div>
+        <div class="date-chips" id="dateChips"></div>
+      </div>
+      <div class="matches-grid" id="matchesGrid"></div>
+      <div class="matches-empty" id="matchesEmpty" hidden>Seçtiğin tarih/aramada maç bulunamadı.</div>
+    </div>
+  </section>
+
+  <!-- BAHISNOW TV — premium streaming section -->  <!-- BAHISNOW TV — premium streaming section -->
+  <section class="bntv-sec" id="bahisnow-tv">
+    <div class="bntv-wrap">
+
+      <div class="bntv-eyebrow">
+        <span class="ll"></span>
+        <span class="tag">Premium Yayın Hizmeti</span>
+        <span class="ll r"></span>
+      </div>
+
+      <div class="bntv-brand-mark">
+        <img src="tv(1).png" alt="BahisNow TV" />
+        <span class="word">BahisNow <span class="gold">TV</span></span>
+      </div>
+
+      <h2 class="bntv-headline">Dünya Kupası 2026'nın Tüm Maçları <span class="pink">Canlı.</span></h2>
+      <p class="bntv-lede">FIFA Dünya Kupası 2026'nın 104 maçını HD kalitede, kesintisiz ve ücretsiz izleyin. BahisNow üyelerine özel premium yayın hizmeti.</p>
+
+      <div class="bntv-grid">
+        <div class="bntv-screen">
+          <span class="bntv-tv-frame"></span>
+          <span class="bntv-corner tl"></span>
+          <span class="bntv-corner tr"></span>
+          <span class="bntv-corner bl"></span>
+          <span class="bntv-corner br"></span>
+          <video src="Bahisnow_La_Liga_Resmi_Sponsor-4.mp4" loop playsinline preload="metadata" controls></video>
+        </div>
+        <div class="bntv-cta-row">
+          <a href="#" class="bntv-cta" data-bahisnow-tv>Canlı İzle</a>
+        </div>
+      </div>
+
+      <div class="bntv-marquee">
+        <span class="bntv-marquee-item"><span class="bullet"></span>Dünya Kupası <strong>2026</strong></span>
+        <span class="bntv-marquee-item"><span class="bullet"></span><strong>104</strong> maç canlı</span>
+        <span class="bntv-marquee-item"><span class="bullet"></span><strong>HD</strong> kalite</span>
+        <span class="bntv-marquee-item"><span class="bullet"></span><strong>7/24</strong> erişim</span>
+        <span class="bntv-marquee-item"><span class="bullet"></span>Tüm cihazlar</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LALIGA SPONSORSHIP -->
+  <section class="laliga-sec" id="sponsor">
+    <div class="laliga-wrap">
+
+      <div class="ll-eyebrow">
+        <span class="line"></span>
+        <span class="tag">Resmi Sponsor · 2025/26</span>
+        <span class="line r"></span>
+      </div>
+
+      <h2 class="ll-title">AVRUPA'NIN <span class="pink">SAHALARINDAYIZ</span></h2>
+      <p class="ll-lede">BahisNow, LaLiga'nın resmi sponsoru olarak Türkiye pazarında. Avrupa'nın en heyecanlı liginde, sezonun her dakikasında yanınızdayız.</p>
+
+      <div class="ll-banner-wrap">
+        <img class="ll-banner" src="Bahisnow_Ads2.png" alt="LaLiga Resmi Sponsoru — BahisNow" />
+      </div>
+
+      <!-- LaLiga sponsorship video (30s clip) -->
+      <div class="ll-video-wrap">
+        <div class="ll-video">
+          <video src="Bahisnow_La_Liga_Resmi_Sponsor-5.mp4" loop playsinline preload="metadata" controls></video>
+        </div>
+        <p class="ll-video-cap">Resmi Sponsorluk Tanıtım Spotu</p>
+      </div>
+
+      <div class="ll-stats">
+        <div class="ll-stat"><span class="num">20</span><span class="lbl">LaLiga Takımı</span></div>
+        <div class="ll-stat"><span class="num">380<span class="accent">+</span></span><span class="lbl">Toplam Maç</span></div>
+        <div class="ll-stat"><span class="num">7/24</span><span class="lbl">Canlı Yayın</span></div>
+        <div class="ll-stat"><span class="num">2025/26</span><span class="lbl">Sezon</span></div>
+      </div>
+
+      <p class="partners-label">⭐ Sponsor Olduğumuz LaLiga Takımları ⭐</p>
+      <div class="partners">
+        <div class="partner team-rma">Real Madrid</div>
+        <div class="partner team-bar">Barcelona</div>
+        <div class="partner team-atm">Atlético Madrid</div>
+        <div class="partner team-sev">Sevilla</div>
+        <div class="partner team-bil">Athletic Bilbao</div>
+        <div class="partner team-bet">Real Betis</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ — Why BahisNow -->
+  <section class="sec faq-sec" id="neden">
+    <div class="container">
+      <div class="sec-head">
+        <div class="sec-tag">❓ Sık Sorulan Sorular</div>
+        <h2 class="sec-title">NEDEN <span class="pink">BAHISNOW?</span></h2>
+        <p class="sec-sub">Türkiye'nin en hızlı, en güvenilir ve en cömert bahis platformu hakkında merak edilenler.</p>
+      </div>
+      <div class="faq-wrap">
+
+        <div class="faq-item open">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">⚡ Para çekme işlemleri ne kadar sürer?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a">Kazançlarınız <strong>1-4 saat</strong> içinde hesabınıza yansır. VIP üyeler öncelikli işlem hakkından yararlanarak aynı gün ödeme alır. Papara, Havale, Kripto (BTC/ETH/USDT) ve kart dahil <strong>50+ ödeme yöntemi</strong> desteklenir.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">🛡️ BahisNow lisanslı ve güvenli mi?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a">Evet. BahisNow, <strong>Anjouan Gaming Board</strong> tarafından lisanslandırılmış ve düzenli olarak denetlenmektedir. SSL şifreleme, PCI-DSS uyumlu ödeme altyapısı ve <strong>2.5 milyon+ aktif üye</strong> ile sektörün en güvenilir platformlarından biridir. Lisans doğrulama linki sayfanın altında bulunur.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">📊 Dünya Kupası maçlarında oranlar yüksek mi?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a">LaLiga resmi sponsoru olarak BahisNow, Dünya Kupası 2026 maçları dahil tüm büyük turnuvalarda <strong>sektörün en yüksek oranlarını</strong> sunar. Türkiye Milli Takım maçlarına özel <strong>+500 bahis seçeneği</strong> ve gerçek zamanlı oran güncellemeleri vardır.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">📱 Mobil uygulama mevcut mu?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a">iOS ve Android için BahisNow mobil uygulaması mevcuttur. Anlık bildirimler, hızlı bahis ve canlı yayın sunar. Mobil sitemizi de masaüstüne hiçbir özellikten ödün vermeden kullanabilirsiniz. <a href="https://bahisnowapp4.com/" target="_blank" rel="noopener" style="color:var(--gold-light);font-weight:800">Uygulamayı İndir →</a></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">🎧 Müşteri desteğine nasıl ulaşırım?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a">Türkçe canlı destek <strong>7/24 kesintisiz</strong> hizmet vermektedir. Sitedeki canlı sohbet, WhatsApp, Telegram ve e-posta yoluyla ulaşabilirsiniz. Ortalama yanıt süresi <strong>30 saniye</strong> altındadır.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">🎁 Hoş geldin bonusu nasıl alınır?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a">Üye olduktan sonra ilk <strong>3 yatırımına</strong> %100'e varan bonus + Sweet Bonanza ücretsiz spinleri tanımlanır — toplam <strong>4.500 TL bonus + 150 ücretsiz spin</strong>. Her yatırıma 1.500 TL'ye kadar %100 bonus ve 50 spin. <a href="https://bahisnowapp4.com/" target="_blank" rel="noopener" style="color:var(--gold-light);font-weight:800">Hemen Üye Ol &amp; Bonusu Al →</a></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+            <span class="faq-q-text">⚽ Türkiye Milli Takım maçlarında bonus var mı?</span>
+            <span class="faq-q-icon">+</span>
+          </div>
+          <div class="faq-a">Evet — Türkiye ilerledikçe artan <strong>%25'ten %100'e kadar nakit iade bonusu</strong> (Bonus Maratonu) ile milli takımı destekleyenler ödüllendirilir. Nakit iade bonusudur, <strong>çevrim şartı yoktur</strong>.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-bottom">
+    <h2>KAZANMAYA <span class="gold">HEMEN BAŞLA</span></h2>
+    <a href="#" class="cta-pri">Üye Ol & Canlı İzle →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand-block">
+          <div class="footer-brand">
+            <img src="bahisnow-logo.png" alt="BahisNow" />
+          </div>
+          <span class="footer-tag">✦ LaLiga Resmi Sponsoru ✦</span>
+          <p class="footer-desc">Türkiye'nin en cömert spor bahis ve canlı casino platformu. 2.5 milyon+ aktif üye, 8.000+ canlı maç, %200 hoş geldin bonusu ve 7/24 Türkçe destek.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Destek</h4>
+          <ul>
+            <li><a href="#">7/24 Canlı Destek</a></li>
+            <li><a href="#neden">SSS</a></li>
+            <li><a href="#">Sorumlu Oyun</a></li>
+            <li><a href="#">Gizlilik Politikası</a></li>
+            <li><a href="#">Kullanım Şartları</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Kampanyalar</h4>
+          <ul>
+            <li><a href="#bonuslar">Bonus Maratonu</a></li>
+            <li><a href="#bonuslar">Dünya Kupası Turnuvası</a></li>
+            <li><a href="#bonuslar">Dünya Kupası Çekilişi</a></li>
+            <li><a href="#bonuslar">Tek Maç Kayıp Bonusu</a></li>
+            <li><a href="#bonuslar">%15 Kayıp Bonusu</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Bahisler</h4>
+          <ul>
+            <li><a href="#turkiye">Türkiye Milli Takım</a></li>
+            <li><a href="#maclar">Dünya Kupası</a></li>
+            <li><a href="#maclar">Canlı Maçlar</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- LICENSE BADGE -->
+      <div class="license-wrap">
+        <a href="https://verification.anjouangamingboard.org/validate?domain=275bahisnow.com&seal_id=5d5015129bf32d802fdb02f9575b4a84d3276def511ee33ac57f819fbd146cc2840a36653a4c9fc98856b35d708c0d20&stamp=e16719e03aefe9f82946601cc99555a9" target="_blank" rel="noopener noreferrer" class="license-link" title="Lisans doğrulama — Anjouan Gaming Board">
+          <img class="license-img" src="license-anjouan.png" alt="Anjouan Gaming Board" onerror="this.style.display='none'">
+          <span>
+            <strong>Anjouan Gaming Board</strong>
+            <small>✓ Lisanslı · Doğrulanmış</small>
+          </span>
+        </a>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="icons">
+          <span class="badge">18+</span>
+          <span class="badge">SSL</span>
+          <span class="badge">Anjouan Lisanslı</span>
+          <span class="badge">PCI-DSS</span>
+          <span class="badge">Responsible Gaming</span>
+        </div>
+        <p>© 2026 BahisNow · Tüm hakları saklıdır · LaLiga Resmi Sponsoru · Anjouan Gaming Board lisanslı · 18 yaş altı oyun yasaktır · Kumar bağımlılığı yardım hattı: 182 · Sorumlu oyun politikamıza uyunuz</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // (maç filtreleme aşağıdaki renderer tarafından yönetilir)
+
+    // World Cup 2026 — Opening match: 11 June 2026, 20:00 local time (Mexico City UTC-6)
+    // 20:00 Mexico time = 03:00 UTC June 12 = 06:00 Turkey time (UTC+3) June 12
+    var WC_START = new Date('2026-06-12T03:00:00Z').getTime();
+
+    function tickCountdown() {
+      var now = Date.now();
+      var diff = WC_START - now;
+      if (diff <= 0) {
+        document.querySelectorAll('[data-cd]').forEach(function(el){ el.textContent = '00'; });
+        return;
+      }
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
+      var pad = function(n){ return String(n).padStart(2,'0'); };
+      var map = { days: pad(days), hours: pad(hours), minutes: pad(mins), seconds: pad(secs) };
+      Object.keys(map).forEach(function(k){
+        document.querySelectorAll('[data-cd="'+k+'"]').forEach(function(el){ el.textContent = map[k]; });
+      });
+    }
+    tickCountdown();
+    setInterval(tickCountdown, 1000);
+
+    // Bonus card — click opens a details modal (runs after DOM is parsed so the modal exists)
+    document.addEventListener('DOMContentLoaded', function(){
+      var modal = document.getElementById('bonusModal');
+      if (!modal) return;
+      var box = modal.querySelector('.bonus-modal-box'),
+          bmIcon = modal.querySelector('.bm-icon'),
+          bmAmt = modal.querySelector('.bm-amt'),
+          bmTitle = modal.querySelector('.bm-title'),
+          bmDesc = modal.querySelector('.bm-desc'),
+          bmTerms = modal.querySelector('.bm-terms');
+      function openModal(card){
+        var ic = card.querySelector('.bonus-icon');
+        bmIcon.textContent = ic ? ic.textContent : '';
+        bmAmt.textContent = (card.querySelector('.bonus-amt') || {}).textContent || '';
+        bmTitle.textContent = (card.querySelector('.bonus-title') || {}).textContent || '';
+        if (bmDesc) bmDesc.textContent = (card.querySelector('.bonus-desc') || {}).textContent || '';
+        var det = card.querySelector('.bonus-details');
+        bmTerms.innerHTML = det ? det.innerHTML : '';
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (box) box.scrollTop = 0;
+        var bd = modal.querySelector('.bm-body'); if (bd) bd.scrollTop = 0;
+      }
+      function closeModal(){ modal.classList.remove('open'); document.body.style.overflow = ''; }
+      document.querySelectorAll('.bonus').forEach(function(card){
+        card.addEventListener('click', function(e){
+          if (e.target.closest('.bonus-cta')) return;  // "Hemen Katıl" kendi linki olarak çalışsın
+          openModal(card);
+        });
+      });
+      modal.querySelectorAll('[data-close]').forEach(function(el){ el.addEventListener('click', closeModal); });
+      document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+    });
+
+    // Hero slider — autoplay + manual (arrows, dots, swipe)
+    (function(){
+      var root = document.getElementById('heroSlider');
+      if (!root) return;
+      var track = root.querySelector('.hs-track');
+      var viewport = root.querySelector('.hs-viewport');
+      var slides = root.querySelectorAll('.hs-slide');
+      var dotsWrap = root.querySelector('.hs-dots');
+      var n = slides.length, i = 0, timer = null, AUTO = 5000;
+      function setHeight(){ var s = slides[i]; if (s && s.offsetHeight) viewport.style.height = s.offsetHeight + 'px'; }
+      root.querySelectorAll('img').forEach(function(im){ if (!im.complete) im.addEventListener('load', setHeight); });
+      window.addEventListener('resize', setHeight);
+      window.addEventListener('load', setHeight);
+      var dots = [];
+      for (var d = 0; d < n; d++) {
+        var b = document.createElement('button');
+        b.className = 'hs-dot' + (d === 0 ? ' active' : '');
+        b.type = 'button';
+        b.setAttribute('aria-label', (d + 1) + '. görsel');
+        (function(idx){ b.addEventListener('click', function(){ go(idx); reset(); }); })(d);
+        dotsWrap.appendChild(b); dots.push(b);
+      }
+      function go(idx){
+        i = (idx + n) % n;
+        track.style.transform = 'translateX(' + (-i * 100) + '%)';
+        for (var k = 0; k < n; k++) dots[k].classList.toggle('active', k === i);
+        setHeight();
+      }
+      function next(){ go(i + 1); }
+      function prev(){ go(i - 1); }
+      function start(){ stop(); if (n > 1) timer = setInterval(next, AUTO); }
+      function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+      function reset(){ start(); }
+      root.querySelector('.hs-next').addEventListener('click', function(){ next(); reset(); });
+      root.querySelector('.hs-prev').addEventListener('click', function(){ prev(); reset(); });
+      root.addEventListener('mouseenter', stop);
+      root.addEventListener('mouseleave', start);
+      var x0 = null;
+      root.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; stop(); }, { passive: true });
+      root.addEventListener('touchend', function(e){
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); }
+        x0 = null; start();
+      }, { passive: true });
+      // mouse drag (desktop) — grab and pull to move
+      var mx = null, dragged = false;
+      root.addEventListener('pointerdown', function(e){
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        mx = e.clientX; dragged = false; stop();
+      });
+      root.addEventListener('pointermove', function(e){
+        if (mx === null) return;
+        if (Math.abs(e.clientX - mx) > 8) dragged = true;
+      });
+      window.addEventListener('pointerup', function(e){
+        if (mx === null) return;
+        var dx = e.clientX - mx;
+        if (Math.abs(dx) > 50) { dx < 0 ? next() : prev(); }
+        mx = null; start();
+      });
+      // block the slide's link click right after a drag
+      root.querySelectorAll('.hs-slide').forEach(function(s){
+        s.addEventListener('click', function(e){ if (dragged) { e.preventDefault(); dragged = false; } });
+      });
+      document.addEventListener('visibilitychange', function(){ document.hidden ? stop() : start(); });
+      setHeight();
+      start();
+    })();
+
+    // Background videos: muted autoplay (silent load); native controls let the customer play/unmute
+    (function(){
+      function init(){
+        document.querySelectorAll('video[autoplay]').forEach(function(v){
+          v.muted = true; try { v.playsInline = true; } catch(e){}
+          var p = v.play(); if (p && typeof p.catch === 'function') p.catch(function(){});
+        });
+      }
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+    })();
+
+    // Loop videos + sound toggle
+    (function(){
+      var vids = document.querySelectorAll('video.loop-video');
+      var btns = document.querySelectorAll('[data-vol-toggle]');
+      var soundOn = false;
+
+      function startPlay(v){
+        try { v.playsInline = true; } catch(e){}
+        var p = v.play();
+        if (p && typeof p.catch === 'function') p.catch(function(){});
+      }
+
+      function syncBtnState(){
+        btns.forEach(function(b){
+          b.classList.toggle('is-on', soundOn);
+          b.setAttribute('aria-pressed', soundOn ? 'true' : 'false');
+        });
+      }
+
+      function applySound(){
+        vids.forEach(function(v){
+          v.muted = !soundOn;
+          v.volume = 1;
+          startPlay(v);
+        });
+        syncBtnState();
+      }
+
+      // Init: mute + autoplay
+      vids.forEach(function(v){
+        v.muted = true;
+        v.loop = true;
+        v.setAttribute('loop','');
+        startPlay(v);
+        // Loop fallback: if loop attr fails, manually restart
+        v.addEventListener('ended', function(){
+          try { v.currentTime = 0; } catch(e){}
+          startPlay(v);
+        });
+        // Some browsers pause when out of view / on stall
+        v.addEventListener('pause', function(){
+          if (!v.ended && !document.hidden) startPlay(v);
+        });
+        v.addEventListener('stalled', function(){ startPlay(v); });
+        v.addEventListener('suspend', function(){ /* allow */ });
+        // If video reaches near end, preemptively rewind
+        v.addEventListener('timeupdate', function(){
+          if (v.duration && v.currentTime >= v.duration - 0.1) {
+            try { v.currentTime = 0; } catch(e){}
+            startPlay(v);
+          }
+        });
+      });
+
+      // Sound toggle button
+      btns.forEach(function(b){
+        b.addEventListener('click', function(e){
+          e.preventDefault();
+          e.stopPropagation();
+          soundOn = !soundOn;
+          applySound();
+        });
+      });
+
+      // Keep playing on tab/focus changes
+      document.addEventListener('visibilitychange', function(){
+        if (!document.hidden) vids.forEach(startPlay);
+      });
+      window.addEventListener('focus', function(){ vids.forEach(startPlay); });
+
+      if ('IntersectionObserver' in window){
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(e){ if (e.isIntersecting) startPlay(e.target); });
+        }, { threshold: 0.05 });
+        vids.forEach(function(v){ io.observe(v); });
+      }
+
+      // Periodic safety check — restart if paused unexpectedly
+      setInterval(function(){
+        vids.forEach(function(v){
+          if (v.paused && !document.hidden) startPlay(v);
+        });
+      }, 1500);
+    })();
+  </script>
+
+  <!-- BONUS DETAILS MODAL -->
+  <div class="bonus-modal" id="bonusModal" aria-hidden="true">
+    <div class="bonus-modal-overlay" data-close></div>
+    <div class="bonus-modal-box" role="dialog" aria-modal="true">
+      <button class="bonus-modal-close" data-close aria-label="Kapat">×</button>
+      <div class="bm-head">
+        <div class="bm-icon"></div>
+        <div class="bm-amt"></div>
+        <h3 class="bm-title"></h3>
+        <p class="bm-desc"></p>
+        <ul class="bm-perks">
+          <li>Anında hesaba tanımlanır</li>
+          <li>Lisanslı &amp; güvenli altyapı</li>
+          <li>7/24 Türkçe canlı destek</li>
+        </ul>
+        <a href="#" class="bm-cta">Hemen Katıl →</a>
+      </div>
+      <div class="bm-body">
+        <div class="bm-terms"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="matches-data.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function(){
+    if (typeof WC_MATCHES === 'undefined') return;
+    var grid = document.getElementById('matchesGrid');
+    var chipsWrap = document.getElementById('dateChips');
+    var emptyEl = document.getElementById('matchesEmpty');
+    var searchEl = document.getElementById('matchSearch');
+    var tabs = document.querySelectorAll('#maclar .match-tab');
+    if (!grid) return;
+    var MON=['Oca','Şub','Mar','Nis','May','Haz','Tem','Ağu','Eyl','Eki','Kas','Ara'];
+    var DOW=['Paz','Pzt','Sal','Çar','Per','Cum','Cmt'];
+    function f(d){ var p=d.split('-'); var dt=new Date(+p[0],+p[1]-1,+p[2]); return {day:+p[2],mon:MON[+p[1]-1],dow:DOW[dt.getDay()]}; }
+    var dates=[]; WC_MATCHES.forEach(function(m){ if(dates.indexOf(m.d)<0) dates.push(m.d); }); dates.sort();
+    var t=new Date(); var ts=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');
+    var up=dates.filter(function(d){return d>=ts;}); var base=up.length?up:dates;
+    var sel={}; base.slice(0,3).forEach(function(d){ sel[d]=true; });
+    var tab='all', chipEls={};
+    var PAGE=9, page=1;
+    var pager=document.createElement('div'); pager.className='match-pager';
+    emptyEl.parentNode.insertBefore(pager, emptyEl.nextSibling);
+    function cr(flag,c){
+      if(flag) return '<div class="crest flag"><img src="'+flag+'" alt="" loading="lazy"></div>';
+      return '<div class="crest'+(c==='TUR'?' tr':'')+'">'+(c==='?'?'<span class="qq">?</span>':c)+'</div>';
+    }
+    function card(m){
+      var c=f(m.d);
+      return '<div class="match'+(m.tr?' is-tr':'')+'">'+
+        '<div class="match-meta"><div class="match-league">🌍 '+m.g+'</div><div class="match-status">'+c.day+' '+c.mon+' · '+m.t+'</div></div>'+
+        '<div class="match-teams">'+
+          '<div class="team">'+cr(m.hf,m.hc)+'<div class="team-name">'+m.h+'</div></div>'+
+          '<div class="match-vs">VS</div>'+
+          '<div class="team">'+cr(m.af,m.ac)+'<div class="team-name">'+m.a+'</div></div>'+
+        '</div>'+
+        '<a href="#bahisnow-tv" class="watch-live"><span class="wl-dot"></span><span class="wl-play">▶</span>'+
+          '<span class="wl-main"><span>Programda Canlı İzle</span><span class="wl-sub">BahisNow TV · Ücretsiz</span></span></a>'+
+      '</div>';
+    }
+    function buildPager(total){
+      var pages=Math.ceil(total/PAGE);
+      if(pages<=1){ pager.innerHTML=''; return; }
+      var h='<button class="pg-btn pg-prev"'+(page<=1?' disabled':'')+'>‹</button>';
+      for(var p=1;p<=pages;p++){
+        if(p===1||p===pages||Math.abs(p-page)<=1){
+          h+='<button class="pg-btn pg-num'+(p===page?' active':'')+'" data-p="'+p+'">'+p+'</button>';
+        } else if(Math.abs(p-page)===2){ h+='<span class="pg-dots">…</span>'; }
+      }
+      h+='<button class="pg-btn pg-next"'+(page>=pages?' disabled':'')+'>›</button>';
+      pager.innerHTML=h;
+      pager.querySelectorAll('.pg-num').forEach(function(b){ b.addEventListener('click', function(){ page=+b.getAttribute('data-p'); render(true); }); });
+      var pv=pager.querySelector('.pg-prev'), nx=pager.querySelector('.pg-next');
+      if(pv) pv.addEventListener('click', function(){ if(page>1){page--; render(true);} });
+      if(nx) nx.addEventListener('click', function(){ var pg=Math.ceil(total/PAGE); if(page<pg){page++; render(true);} });
+    }
+    function render(scrollTop){
+      var q=(searchEl.value||'').trim().toLowerCase();
+      var any=Object.keys(sel).some(function(k){return sel[k];});
+      var list=WC_MATCHES.filter(function(m){
+        if(tab==='turkey') return m.tr;
+        if(q) return (m.h+' '+m.a).toLowerCase().indexOf(q)>=0;
+        return !any || sel[m.d];
+      });
+      var pages=Math.max(1,Math.ceil(list.length/PAGE));
+      if(page>pages) page=pages;
+      grid.innerHTML=list.slice((page-1)*PAGE, page*PAGE).map(card).join('');
+      emptyEl.hidden = list.length>0;
+      buildPager(list.length);
+      if(scrollTop){ var s=document.getElementById('maclar'); if(s) s.scrollIntoView({behavior:'smooth',block:'start'}); }
+    }
+    function apply(){ page=1; render(); }
+    var allChip=document.createElement('button');
+    allChip.className='date-chip date-chip-all'; allChip.textContent='Tümü';
+    allChip.addEventListener('click', function(){
+      var anyOff=dates.some(function(d){return !sel[d];});
+      dates.forEach(function(d){ sel[d]=anyOff; chipEls[d].classList.toggle('active',anyOff); });
+      apply();
+    });
+    chipsWrap.appendChild(allChip);
+    dates.forEach(function(d){
+      var c=f(d), b=document.createElement('button');
+      b.className='date-chip'+(sel[d]?' active':'');
+      b.innerHTML='<b>'+c.day+' '+c.mon+'</b><span>'+c.dow+'</span>';
+      b.addEventListener('click', function(){ sel[d]=!sel[d]; b.classList.toggle('active',sel[d]); apply(); });
+      chipsWrap.appendChild(b); chipEls[d]=b;
+    });
+    tabs.forEach(function(tb){ tb.addEventListener('click', function(){
+      tabs.forEach(function(x){x.classList.remove('active');}); tb.classList.add('active');
+      tab=tb.getAttribute('data-tab'); apply();
+    }); });
+    searchEl.addEventListener('input', apply);
+    render();
+  });
+  </script>
+</body>
+</html>
