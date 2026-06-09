@@ -403,21 +403,21 @@
     .bonus-sec .sec-head{margin-bottom:28px}
     .bonus-grid{display:grid;grid-template-columns:1fr;gap:18px}
     @media(min-width:760px){.bonus-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(min-width:1100px){.bonus-grid{grid-template-columns:repeat(3,1fr)}}
+    @media(min-width:1100px){.bonus-grid{grid-template-columns:repeat(4,1fr);gap:16px}}
     /* ===== MOBILE CAROUSEL — bonus & match cards become swipe sliders ===== */
     @media(max-width:640px){
       .matches-grid,.bonus-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;align-items:flex-start;gap:14px;padding-bottom:14px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
       .matches-grid::-webkit-scrollbar,.bonus-grid::-webkit-scrollbar{display:none}
       .matches-grid>.match,.bonus-grid>.bonus{flex:0 0 86%;scroll-snap-align:center}
     }
-    .bonus{display:flex;flex-direction:column;padding:28px 24px;border-radius:18px;background:linear-gradient(145deg,#181B2C,#0F1320);border:1px solid var(--line);position:relative;overflow:hidden;transition:all .3s}
+    .bonus{display:flex;flex-direction:column;padding:22px 20px;border-radius:16px;background:linear-gradient(145deg,#181B2C,#0F1320);border:1px solid var(--line);position:relative;overflow:hidden;transition:all .3s}
     .bonus:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(255,23,68,.15)}
     .bonus.featured{background:linear-gradient(145deg,#3A0A1F,#1A0211);border:1px solid var(--line-pink);box-shadow:0 16px 40px rgba(255,23,68,.2)}
     .bonus-tag{position:absolute;top:18px;right:18px;padding:3px 10px;border-radius:100px;background:rgba(245,158,11,.18);border:1px solid rgba(245,158,11,.4);color:var(--gold-light);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
-    .bonus-icon{width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,var(--pink),var(--pink-deep));display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:18px;box-shadow:0 8px 20px rgba(255,23,68,.3)}
+    .bonus-icon{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--pink),var(--pink-deep));display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:14px;box-shadow:0 8px 20px rgba(255,23,68,.3)}
     .bonus.featured .bonus-icon{background:linear-gradient(135deg,var(--gold),#FF9100)}
-    .bonus-title{font-family:'Bebas Neue',sans-serif;font-size:22px;color:#fff;margin-bottom:6px;line-height:1.1}
-    .bonus-amt{font-family:'Bebas Neue',sans-serif;font-size:48px;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:14px}
+    .bonus-title{font-family:'Bebas Neue',sans-serif;font-size:20px;color:#fff;margin-bottom:6px;line-height:1.1}
+    .bonus-amt{font-family:'Bebas Neue',sans-serif;font-size:40px;background:linear-gradient(135deg,var(--gold-light),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:12px}
     .bonus-desc{font-size:13px;color:var(--text-2);line-height:1.55;margin-bottom:20px}
     .bonus-cta{display:block;width:100%;margin-top:auto;padding:12px;border-radius:10px;background:rgba(255,255,255,.05);color:#fff;font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-align:center;border:1px solid var(--line-2);transition:all .2s}
     .bonus.featured .bonus-cta{background:linear-gradient(135deg,var(--pink),var(--pink-deep));border-color:transparent}
@@ -464,7 +464,7 @@
     .bm-terms td:first-child{color:#fff;font-weight:700;white-space:nowrap}
     /* 3-up campaign bonus grid + compact tweaks */
     .bonus-grid-3{max-width:1280px;margin-left:auto;margin-right:auto}
-    .bonus-amt.amt-sm{font-size:34px}
+    .bonus-amt.amt-sm{font-size:27px}
     /* ===== MODAL — two-column promotion layout on desktop ===== */
     @media(min-width:760px){
       .bonus-modal-box{display:flex;gap:0;max-width:900px;max-height:86vh;overflow:hidden;padding:0}
@@ -977,6 +977,61 @@
               <li>Casino çevrimi: (yatırım + bonus) 1 kez; Canlı Casino & Crash oyunları %20 katkı.</li>
               <li>Çift ihtimalli oyunlar (Baccarat, rulet tek-çift / kırmızı-siyah) çevrime dahil değildir.</li>
               <li>Bonus, yatırım sırasında seçilmeli; otomatik tanımlanır.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 7) BONUS ÇARKI -->
+        <div class="bonus">
+          <div class="bonus-tag">Her Hafta</div>
+          <div class="bonus-icon">🎡</div>
+          <div class="bonus-title">Bonus Çarkı</div>
+          <div class="bonus-amt amt-sm">50.000₺'ye</div>
+          <p class="bonus-desc">Haftalık 1.000 TL yatır, çarkı çevir: nakit, freespin ve yatırım bonusları kazan.</p>
+          <a href="https://zap57redirectbn.com/tr/kayit-ol?affiliateid=44" target="_blank" rel="noopener" class="bonus-cta">Çarkı Çevir →</a>
+          <button class="bonus-toggle" type="button">Detayları Gör</button>
+          <div class="bonus-details">
+            <p class="bm-lead">Bahisnow Bonus Çarkı ile her hafta kazancını katla! Pazartesi'den Pazar'a en az 1.000 TL yatırımla çark hakkını otomatik kazan — nakit ödüller, freespinler ve yatırım bonusları seni bekliyor.</p>
+            <h4>Çark Ödülleri</h4>
+            <table>
+              <thead><tr><th>Tür</th><th>Ödüller</th></tr></thead>
+              <tbody>
+                <tr><td>Nakit</td><td>50.000 · 1.000 · 500 · 250 · 100 TL</td></tr>
+                <tr><td>Freespin</td><td>100 · 50 · 25 · 10 (Sweet Bonanza)</td></tr>
+                <tr><td>Yatırım Bonusu</td><td>%150 / %75 / %50 / %25 (çevrimli) · %75 / %50 / %25 (çevrimsiz)</td></tr>
+              </tbody>
+            </table>
+            <h4>Kurallar</h4>
+            <ul>
+              <li>Her hafta Pzt 00:00 – Paz 23:59 arası min. 1.000 TL yatırımla çark hakkı otomatik tanımlanır.</li>
+              <li>Her Pazartesi 1 kez; çark hakkı takip eden Pazartesi 08:00'den itibaren kullanılır.</li>
+              <li>Ödüller otomatik hesaba tanımlanır (canlı destek gerekmez).</li>
+              <li>Çekim: min. 1.000 TL, maks. kazancın 50 katı — üst limit 250.000 TL.</li>
+              <li>Çevrim: nakit (spor) 2'li min. 1.99 kombinede 5x · slot 10x · yatırım bonusları site kurallarına tabi.</li>
+              <li>Yatırım bonuslarından elde edilecek maks. tutar 10.000 TL.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 8) KRİPTO BONUSU -->
+        <div class="bonus">
+          <div class="bonus-tag">Üst Limitsiz</div>
+          <div class="bonus-icon">₿</div>
+          <div class="bonus-title">Kripto Yatırım Bonusu</div>
+          <div class="bonus-amt">%20</div>
+          <p class="bonus-desc">Kripto ile yatırıma üst limitsiz %20 yatırım bonusu. Min. 50 TL yatırım.</p>
+          <a href="https://zap57redirectbn.com/tr/kayit-ol?affiliateid=44" target="_blank" rel="noopener" class="bonus-cta">Bonusu Al →</a>
+          <button class="bonus-toggle" type="button">Detayları Gör</button>
+          <div class="bonus-details">
+            <p class="bm-lead">Kripto yatırımlarına özel, üst limit olmadan anında kazanmaya başla! Kripto ile yapacağın yatırımlara %20 yatırım bonusu.</p>
+            <h4>Kurallar</h4>
+            <ul>
+              <li>Kripto yatırıma üst limitsiz %20 bonus; min. 50 TL yatırım.</li>
+              <li>Bonus, yatırım sırasında yatırım sayfasından seçilmeli; otomatik tanımlanır.</li>
+              <li>Spor çevrimi: ana para 1x @1.25 + bonusun 10 katı, min. 1.99 oran (kombinede her maç min. 1.25).</li>
+              <li>Casino çevrimi: ana para 1x + bonusun 30 katı.</li>
+              <li>Canlı Casino & Crash (Aviator vb.) %20 katkı; çift ihtimalli oyunlar hariç.</li>
+              <li>Alınan bonus tüm alanlarda kullanılabilir.</li>
             </ul>
           </div>
         </div>
