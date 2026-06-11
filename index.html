@@ -1406,9 +1406,8 @@
   <script>
     // (maç filtreleme aşağıdaki renderer tarafından yönetilir)
 
-    // World Cup 2026 — Opening match: 11 June 2026, 20:00 local time (Mexico City UTC-6)
-    // 20:00 Mexico time = 03:00 UTC June 12 = 06:00 Turkey time (UTC+3) June 12
-    var WC_START = new Date('2026-06-12T03:00:00Z').getTime();
+    // İlk maç: 11 Haziran 2026, 22:00 TR saati (UTC+3) = 19:00 UTC
+    var WC_START = new Date('2026-06-11T19:00:00Z').getTime();
 
     function tickCountdown() {
       var now = Date.now();
